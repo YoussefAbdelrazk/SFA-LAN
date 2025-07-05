@@ -1,12 +1,6 @@
-import Hero from "@/components/Hero/Hero";
-import Platform from "@/components/Platform/Platform";
-import Services from "@/components/Services/Services";
-import Stories from "@/components/Stories/Stories";
-import Pricing from "@/components/Pricing/Pricing";
-  import Transformation from "@/components/Transformation/Transformation";
+import { Hero, Platform, Pricing, Services, Stories, Transformation } from "@/components/sections";
 
-
-  export default function Home() {
+export default function Home() {
   return (
     <div>
       <Hero />
@@ -15,7 +9,6 @@ import Pricing from "@/components/Pricing/Pricing";
       <Stories />
       <Pricing />
       <Transformation />
-
     </div>
   );
 }
