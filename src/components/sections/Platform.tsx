@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Platform() {
   return (
-    <div className="max-w-6xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20">
+    <div className="max-w-6xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20 overflow-x-hidden">
       {/* image */}
       <div className="mb-8 md:mb-0 flex justify-center">
         <Image

@@ -1,12 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import logo from "@/assets/images/logo.png";
+import { Button } from "@/components/ui";
+import { navbarLinks } from "@/data";
+import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
-import { navbarLinks } from "@/data";
-import { Button } from "@/components/ui";
-import { cn } from "@/lib/utils";
-import logo from "@/assets/images/logo.png";
+import { useState } from "react";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function Navbar() {
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-[#FCFCFD] p-4 rounded-b-3xl z-50 shadow-2xl h-[80px] w-full">
+    <header className="fixed top-0 left-0 right-0 bg-[#FCFCFD] p-4 rounded-b-3xl z-50 shadow-2xl h-[80px] w-full overflow-x-hidden">
       <nav className="flex justify-between items-center max-w-[1140px] mx-auto">
         {/* Logo */}
         <div className="flex-shrink-0">
@@ -32,7 +32,7 @@ export default function Navbar() {
 
         {/* Desktop Menu */}
         <ul className="hidden lg:flex items-center justify-between gap-10">
-          {navbarLinks.map((link) => (
+          {navbarLinks.map(link => (
             <li key={link.id} className="group relative">
               <Link
                 href={link.href}
@@ -58,27 +58,35 @@ export default function Navbar() {
           className="lg:hidden flex flex-col justify-center items-center w-10 h-10 focus:outline-none"
           aria-label="Toggle mobile menu"
         >
-          <span className={cn(
-            "block w-6 h-0.5 bg-[#3E1492] transition-all duration-300",
-            menuOpen ? "rotate-45 translate-y-1.5" : ""
-          )} />
-          <span className={cn(
-            "block w-6 h-0.5 bg-[#3E1492] mt-1 transition-all duration-300",
-            menuOpen ? "opacity-0" : ""
-          )} />
-          <span className={cn(
-            "block w-6 h-0.5 bg-[#3E1492] mt-1 transition-all duration-300",
-            menuOpen ? "-rotate-45 -translate-y-1.5" : ""
-          )} />
+          <span
+            className={cn(
+              "block w-6 h-0.5 bg-[#3E1492] transition-all duration-300",
+              menuOpen ? "rotate-45 translate-y-1.5" : "",
+            )}
+          />
+          <span
+            className={cn(
+              "block w-6 h-0.5 bg-[#3E1492] mt-1 transition-all duration-300",
+              menuOpen ? "opacity-0" : "",
+            )}
+          />
+          <span
+            className={cn(
+              "block w-6 h-0.5 bg-[#3E1492] mt-1 transition-all duration-300",
+              menuOpen ? "-rotate-45 -translate-y-1.5" : "",
+            )}
+          />
         </button>
 
         {/* Mobile Menu */}
-        <div className={cn(
-          "lg:hidden absolute top-full left-0 right-0 bg-[#FCFCFD] shadow-lg transition-all duration-300 overflow-hidden",
-          menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-        )}>
+        <div
+          className={cn(
+            "lg:hidden absolute top-full left-0 right-0 bg-[#FCFCFD] shadow-lg transition-all duration-300 overflow-hidden",
+            menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+          )}
+        >
           <ul className="flex flex-col py-4">
-            {navbarLinks.map((link) => (
+            {navbarLinks.map(link => (
               <li key={link.id}>
                 <Link
                   href={link.href}

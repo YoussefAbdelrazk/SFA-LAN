@@ -1,7 +1,7 @@
-import React from "react";
-import Image, { StaticImageData } from "next/image";
-import { FaStar } from "react-icons/fa";
 import { cn } from "@/lib/utils";
+import Image, { StaticImageData } from "next/image";
+import React from "react";
+import { FaStar } from "react-icons/fa";
 
 interface TestimonialCardProps {
   name: string;
@@ -20,20 +20,14 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
         ref={ref}
         className={cn(
           "bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:scale-105",
-          className
+          className,
         )}
         {...props}
       >
         {/* User Info */}
         <div className="flex items-center gap-4 mb-4">
           <div className="relative w-16 h-16 rounded-full overflow-hidden">
-            <Image
-              src={image}
-              alt={name}
-              fill
-              className="object-cover"
-              sizes="64px"
-            />
+            <Image src={image} alt={name} fill className="object-cover" sizes="64px" />
           </div>
           <div>
             <h3 className="font-bold text-lg text-gray-900">{name}</h3>
@@ -47,22 +41,17 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
           {[...Array(5)].map((_, index) => (
             <FaStar
               key={index}
-              className={cn(
-                "w-4 h-4",
-                index < rating ? "text-yellow-400" : "text-gray-300"
-              )}
+              className={cn("w-4 h-4", index < rating ? "text-yellow-400" : "text-gray-300")}
             />
           ))}
           <span className="text-sm text-gray-600 ml-2">({rating}/5)</span>
         </div>
 
         {/* Content */}
-        <p className="text-gray-700 leading-relaxed italic">
-          "{content}"
-        </p>
+        <p className="text-gray-700 leading-relaxed italic">&ldquo;{content}&rdquo;</p>
       </div>
     );
-  }
+  },
 );
 
 TestimonialCard.displayName = "TestimonialCard";

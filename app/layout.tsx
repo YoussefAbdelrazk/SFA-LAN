@@ -31,14 +31,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased`}>
+    <html lang="en" className="overflow-x-hidden">
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased overflow-x-hidden`}
+      >
         <Navbar />
-        <main className=" flex flex-col items-center justify-center md:block">
+        <main className="flex flex-col items-center justify-center md:block overflow-x-hidden">
           {children}
         </main>
         <Footer />
-
       </body>
     </html>
   );
