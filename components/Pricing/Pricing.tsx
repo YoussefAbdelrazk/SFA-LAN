@@ -1,4 +1,3 @@
-import React from "react";
 import { pricingPlans } from "@/data/PricingData";
 import PricingCard from "./PricingCard";
 
@@ -13,8 +12,12 @@ export default function Pricing() {
         Transforming Your Life Today!
       </p>
       <div className="flex justify-center gap-4 mt-6">
-        <button className="bg-[#3E1492] text-white px-6 py-3 rounded-md cursor-pointer">Monthly</button>
-        <button className="text-[#3E1492] border border-[#3E1492] px-6 py-3 rounded-md cursor-pointer">Yearly</button>
+        <button className="bg-[#3E1492] text-white px-6 py-3 rounded-md cursor-pointer">
+          Monthly
+        </button>
+        <button className="text-[#3E1492] border border-[#3E1492] px-6 py-3 rounded-md cursor-pointer">
+          Yearly
+        </button>
       </div>
 
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 px-6 place-items-center">

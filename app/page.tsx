@@ -3,7 +3,8 @@ import Platform from "@/components/Platform/Platform";
 import Services from "@/components/Services/Services";
 import Stories from "@/components/Stories/Stories";
 import Pricing from "@/components/Pricing/Pricing";
-import Transformation from "@/components/Transformation/Transformation";
+  import Transformation from "@/components/Transformation/Transformation";
+
 
   export default function Home() {
   return (
@@ -14,6 +15,7 @@ import Transformation from "@/components/Transformation/Transformation";
       <Stories />
       <Pricing />
       <Transformation />
+
     </div>
   );
 }
