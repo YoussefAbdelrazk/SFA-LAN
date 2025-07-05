@@ -7,10 +7,10 @@ export default function Card({title, description, image}: {title: string, descri
     <Image src={image} alt={title} width={332} height={200} className="rounded-lg mb-4 object-cover" />
     <h3 className="font-bold text-xl mb-2">{title}</h3>
     <p className="text-gray-600 flex-1">{description}</p>
-    <button className='bg-[#3E1492] text-white px-4 py-2 rounded-md cursor-pointer flex items-center gap-2 mt-4 w-full justify-center'>
-      Learn More
-      <ChevronRight className='w-6 h-6 text-white' />
-    </button>
+    <button className="group bg-[#3E1492] text-white px-6 py-3 rounded-md cursor-pointer flex items-center gap-2 mt-6 shadow-md  transition-transform w-full justify-center ">
+  learn more
+  <ChevronRight className="w-6 h-6 text-white transform transition-transform duration-300 group-hover:rotate-90" />
+</button>
   </div>
   )
 }

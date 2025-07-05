@@ -5,7 +5,7 @@ import FlexComponent from "./FlexComponent";
 
 export default function Platform() {
   return (
-    <div className="max-w-[1140px] mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
+    <div className="max-w-6xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20">
       {/* image */}
       <div className="mb-8 md:mb-0 flex justify-center">
         <Image
@@ -43,10 +43,10 @@ export default function Platform() {
             icon={<CheckCircle2 className="w-6 h-6 text-[#3E1492]" />}
           />
         </div>
-        <button className="bg-[#3E1492] text-white px-6 py-3 rounded-md cursor-pointer flex items-center gap-2 mt-6 shadow-md hover:scale-105 transition-transform">
-          Get Start Now
-          <ChevronRight className="w-6 h-6 text-white" />
-        </button>
+        <button className="group bg-[#3E1492] text-white px-6 py-3 rounded-md cursor-pointer flex items-center gap-2 mt-6 shadow-md  transition-transform">
+  Get Start Now
+  <ChevronRight className="w-6 h-6 text-white transform transition-transform duration-300 group-hover:rotate-90" />
+</button>
       </div>
     </div>
   );

@@ -1,11 +1,14 @@
 import React from 'react'
 import Card from './Card'
 import { services } from '@/data/Services'
+import { useGSAP } from '@gsap/react';
 
 
 export default function Services() {
+  
   return (
-    <div className='max-w-[1140px] mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20'>
+    <section>
+        <div className='max-w-7xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20'>
     <h2 className='text-5xl font-bold text-center'>
       Premium <span className='text-[#3E1492]'>Fitness Services</span>
     </h2>
@@ -26,5 +29,7 @@ export default function Services() {
   </div>
 </div>
   </div>
+    </section>
+
   )
 }
