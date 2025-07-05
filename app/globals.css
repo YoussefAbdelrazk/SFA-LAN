@@ -4,15 +4,17 @@
   display: block;
   position: absolute;
   left: 0;
-  bottom: -2px;
-  width: 0;
+  bottom: 0;
   height: 2px;
+  width: 100%;
   background: #3E1492;
-  transition: width 0.3s ease;
-  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
 }
 .group:hover .nav-underline {
-  width: 100%;
+  transform: scaleX(1);
 }
 
 .Hero{

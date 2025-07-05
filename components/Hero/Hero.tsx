@@ -8,7 +8,7 @@ export default function Hero() {
     <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 md:grid md:grid-cols-2 md:place-items-center md:gap-10 md:max-w-[1140px] md:mx-auto md:px-0">
       {/* content */}
       <div className="text-[#FCFCFD] flex flex-col space-y-6 max-w-full  md:max-w-[400px] lg:max-w-[558px]   ">
-        <h1 className="font-bold  text-2xl md:text-3xl lg:text-5xl max-w-lg leading-[150%]">
+        <h1 className="font-bold  text-2xl md:text-3xl lg:text-5xl max-w-lg leading-tight">
           Get Fit. Pay Less.
           <br />
           Stay Strong with
