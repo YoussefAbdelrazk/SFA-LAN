@@ -17,7 +17,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       <div
         ref={ref}
         className={cn(
-          "border border-[#3E1492] p-6 rounded-2xl shadow-2xl h-[479px] w-[360px] space-y-10 transition-all duration-300 hover:scale-105",
+          "border border-[#3E1492] p-6 rounded-2xl shadow-2xl min-h-[479px] w-full max-w-[360px] space-y-6 transition-all duration-300 hover:scale-105 flex flex-col justify-between overflow-hidden",
           highlighted && "bg-[#3E1492] text-white scale-105 shadow-2xl",
           className,
         )}
@@ -39,18 +39,18 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
         >
           {price}
         </h2>
-        <div>
+        <div className="overflow-hidden">
           <ul className="space-y-2 mt-4">
             {features.map((feature, idx) => (
               <li
                 key={idx}
                 className={cn(
-                  "flex items-center gap-2",
+                  "flex items-center gap-2 overflow-hidden",
                   highlighted ? "text-white" : "text-gray-700",
                 )}
               >
                 <span className={highlighted ? "text-white" : "text-[#3E1492]"}>✓</span>
-                <span>{feature}</span>
+                <span className="break-words overflow-hidden">{feature}</span>
               </li>
             ))}
           </ul>

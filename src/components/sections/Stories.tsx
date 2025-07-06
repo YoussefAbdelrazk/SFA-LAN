@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Stories() {
   return (
-    <div className="max-w-7xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20 place-items-center overflow-x-hidden">
+    <section className="max-w-7xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20 place-items-center overflow-x-hidden">
       {/* content */}
       <div className="space-y-4">
         <h2 className="text-4xl font-bold leading-tight max-w-[458px]">
@@ -48,6 +48,6 @@ export default function Stories() {
           className="rounded-3xl shadow-xl absolute top-[64px] -right-[50px]"
         />
       </div>
-    </div>
+    </section>
   );
 }

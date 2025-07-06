@@ -19,7 +19,7 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
       <div
         ref={ref}
         className={cn(
-          "bg-white rounded-2xl shadow-lg p-6 transition-all duration-300 hover:shadow-xl hover:scale-105",
+          "bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl  w-full max-w-[360px] overflow-hidden",
           className,
         )}
         {...props}
@@ -48,7 +48,9 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
         </div>
 
         {/* Content */}
-        <p className="text-gray-700 leading-relaxed italic">&ldquo;{content}&rdquo;</p>
+        <p className="text-gray-700 leading-relaxed italic break-words overflow-hidden">
+          &ldquo;{content}&rdquo;
+        </p>
       </div>
     );
   },

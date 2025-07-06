@@ -13,17 +13,17 @@ export const navbarLinks: NavbarLink[] = [
   },
   {
     id: 3,
-    name: "Services",
-    href: "/#services",
+    name: "Privacy & Policy",
+    href: "/privacy-policy",
   },
   {
     id: 4,
-    name: "Pricing",
-    href: "/#pricing",
+    name: "FAQ",
+    href: "/faq",
   },
   {
     id: 5,
     name: "Contact",
-    href: "/#contact",
+    href: "/contact",
   },
 ];

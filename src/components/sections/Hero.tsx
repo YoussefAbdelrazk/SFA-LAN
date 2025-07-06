@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Hero() {
   return (
-    <div className="Hero bg-gradient-to-r from-[#1a1442] to-[#3E1492] py-10 md:py-20 rounded-b-3xl overflow-hidden px-4 ">
+    <section className="Hero bg-gradient-to-r from-[#1a1442] to-[#3E1492] py-10 md:py-20 rounded-b-3xl overflow-hidden px-4 ">
       <div className="flex flex-col items-center justify-center min-h-[80vh] px-4 md:grid md:grid-cols-2 md:place-items-center md:gap-10 md:max-w-[1140px] md:mx-auto md:px-0">
         {/* content */}
         <div className="text-[#FCFCFD] flex flex-col space-y-6 max-w-full  md:max-w-[400px] lg:max-w-[558px]   ">
@@ -50,6 +50,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }

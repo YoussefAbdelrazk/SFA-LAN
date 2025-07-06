@@ -1,10 +1,10 @@
+import logo from "@/assets/images/logo.png";
+import { SITE_CONFIG } from "@/constants";
+import { navbarLinks } from "@/data";
 import Image from "next/image";
 import Link from "next/link";
 import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter, FaYoutube } from "react-icons/fa";
-import { navbarLinks } from "@/data";
-import { SITE_CONFIG } from "@/constants";
 import { Container } from "./Container";
-import logo from "@/assets/images/logo.png";
 
 const socialLinks = [
   { icon: FaFacebook, href: SITE_CONFIG.links.facebook, label: "Facebook" },
@@ -29,10 +29,10 @@ export default function Footer() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
-              <Image 
-                src={logo} 
-                alt={`${SITE_CONFIG.name} Logo`} 
-                width={100} 
+              <Image
+                src={logo}
+                alt={`${SITE_CONFIG.name} Logo`}
+                width={100}
                 height={100}
                 className="h-auto w-auto"
               />
@@ -41,7 +41,7 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <nav className="flex flex-col md:flex-row items-center gap-6 md:gap-10">
-            {navbarLinks.map((link) => (
+            {navbarLinks.map(link => (
               <Link
                 key={link.id}
                 href={link.href}
@@ -77,9 +77,10 @@ export default function Footer() {
           <p className="text-[#344054] text-sm">
             © {new Date().getFullYear()} {SITE_CONFIG.name}. All rights reserved.
           </p>
-          
+          <p className="text-[#344054] text-sm">Designed & Developed By Catalyst</p>
+
           <div className="flex flex-wrap items-center gap-4 text-sm">
-            {footerLinks.map((link) => (
+            {footerLinks.map(link => (
               <Link
                 key={link.name}
                 href={link.href}

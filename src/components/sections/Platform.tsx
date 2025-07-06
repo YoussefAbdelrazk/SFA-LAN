@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export default function Platform() {
   return (
-    <div className="max-w-6xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20 overflow-x-hidden">
+    <section className="max-w-6xl mx-auto py-12 px-4 sm:px-8 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center my-20 overflow-x-hidden">
       {/* image */}
       <div className="mb-8 md:mb-0 flex justify-center">
         <Image
@@ -45,9 +45,9 @@ export default function Platform() {
         </div>
         <Button variant="primary" size="lg" className="group mt-6">
           Get Started Now
-          <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+          <ChevronRight className="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1 cursor-pointer" />
         </Button>
       </div>
-    </div>
+    </section>
   );
 }
