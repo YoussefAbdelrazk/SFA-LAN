@@ -1,0 +1,19 @@
+
+.loaderOverlay {
+  position: fixed;
+  inset: 0;
+  background: #181818;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loaderText {
+  color: #6c3fc5;
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-family: 'Montserrat', sans-serif;
+  transition: all 0.2s;
+}

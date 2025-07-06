@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Roboto } from "next/font/google";
 
 import { Footer, Navbar } from "@/components/layout";
+import LayoutLoader from "@/components/ui/LayoutLoader";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -35,6 +36,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased overflow-x-hidden`}
       >
+        <LayoutLoader />
         <Navbar />
         <main className="flex flex-col items-center justify-center md:block overflow-x-hidden">
           {children}
