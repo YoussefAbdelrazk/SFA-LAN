@@ -5,11 +5,25 @@
 html, body {
   overflow-x: hidden;
   max-width: 100vw;
+  scroll-behavior: smooth;
 }
 
-* {
-  box-sizing: border-box;
-}
+
+
+/* Smooth hover effects for interactive elements */
+
+/* Smooth image loading */
+
+/* Smooth card hover effects */
+
+
+/* Smooth page transitions */
+
+
+
+
+
+
 
 /* About Us Background Image Styling */
 .about-hero-bg {

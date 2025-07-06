@@ -17,7 +17,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
       <div
         ref={ref}
         className={cn(
-          "border border-[#3E1492] p-6 rounded-2xl shadow-2xl min-h-[479px] w-full max-w-[360px] space-y-6 transition-all duration-300 hover:scale-105 flex flex-col justify-between overflow-hidden",
+          "border border-[#3E1492] p-6 rounded-2xl shadow-2xl min-h-[479px] w-full max-w-[360px] space-y-6 transition-all duration-500 hover:scale-105 flex flex-col justify-between overflow-hidden",
           highlighted && "bg-[#3E1492] text-white scale-105 shadow-2xl",
           className,
         )}
