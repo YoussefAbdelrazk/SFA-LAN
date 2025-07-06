@@ -98,6 +98,15 @@ html, body {
   overflow: hidden;
 }
 
+/* Mobile background image change */
+@media (max-width: 768px) {
+  .about-background {
+    background-image: url("../src/assets/images/Background.jpg");
+    background-attachment: scroll;
+    min-height: 100vh;
+  }
+}
+
 .about-grid {
   background-image: url("../src/assets/images/AboutUsGrid.jpg");
   background-size: cover;
