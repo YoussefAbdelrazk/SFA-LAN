@@ -25,7 +25,7 @@ function ContactCard({ icon, title, description, contact, className }: ContactCa
           {icon}
         </div>
         <div className="transition-all duration-300">
-          <h3 className="text-xl font-bold text-gray-900 mb-2 transition-all duration-300 group-hover:text-[#3E1492]">
+          <h3 className="text-xl font-bold  mb-2 transition-all duration-300 group-hover:text-[#3E1492]">
             {title}
           </h3>
           <p className="text-gray-600 mb-3 transition-all duration-300 group-hover:text-gray-800">

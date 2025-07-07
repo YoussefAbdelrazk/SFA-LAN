@@ -31,7 +31,7 @@ export default function AboutPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl font-bold text-[#344054] mb-6">
               Our <span className="text-[#3E1492]">Story</span>
             </h2>
             <p className="text-lg text-gray-700 leading-relaxed">
@@ -47,7 +47,7 @@ export default function AboutPage() {
               <Button variant="primary" size="lg">
                 Start Your Journey
               </Button>
-          
+
             </div>
           </div>
 
@@ -67,7 +67,7 @@ export default function AboutPage() {
       </Section>
 
       {/* Stats Section */}
-      <Section className="bg-gradient-to-r from-[#1a1442] to-[#3E1492] text-white">
+      <Section className="bg-gradient-to-r from-[#1a1442] to-[#3E1492] text-white ">
         <div className="text-center mb-12">
           <h2 className="text-4xl font-bold mb-4">Our Impact</h2>
           <p className="text-xl opacity-90">Making a difference in our community</p>
@@ -94,12 +94,12 @@ export default function AboutPage() {
       </Section>
 
       {/* Mission Section */}
-      <Section className="bg-gray-50">
+      <Section className="bg-gray-50 text-[#344054]">
         <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl font-bold  mb-6">
             Our <span className="text-[#3E1492]">Mission</span>
           </h2>
-          <p className="text-xl text-gray-700 leading-relaxed mb-8">
+          <p className="text-xl  leading-relaxed mb-8">
             To empower individuals to achieve their fitness goals through personalized training,
             innovative programs, and a supportive community that celebrates every victory, no matter
             how small.

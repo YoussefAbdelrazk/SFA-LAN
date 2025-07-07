@@ -17,7 +17,7 @@ const ServiceCard = React.forwardRef<HTMLDivElement, ServiceCardProps>(
       <div
         ref={ref}
         className={cn(
-          "bg-white rounded-xl shadow-xl p-6 flex flex-col items-center text-center w-full h-full min-h-[420px] max-w-[364px] transition-all duration-300 hover:shadow-2xl",
+          "bg-white rounded-xl shadow-xl p-6 flex flex-col items-center text-center w-full h-full min-h-[420px] max-w-[364px] transition-all duration-300 hover:shadow-2xl text-[#344054]",
           className,
         )}
         {...props}
@@ -31,7 +31,7 @@ const ServiceCard = React.forwardRef<HTMLDivElement, ServiceCardProps>(
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
-        <h3 className="font-bold text-xl mb-2 text-gray-900">{title}</h3>
+        <h3 className="font-bold text-xl mb-2 ">{title}</h3>
         <p className="text-gray-600 flex-1 leading-relaxed">{description}</p>
         <Button variant="primary" className="group mt-6 w-full justify-center">
           Learn More

@@ -26,7 +26,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
         <h3
           className={cn(
             "font-bold text-3xl text-center",
-            highlighted ? "text-white" : "text-gray-900",
+            highlighted ? "text-white" : "text-[#344054]",
           )}
         >
           {title}
@@ -58,7 +58,7 @@ const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
         <Button
           variant={highlighted ? "secondary" : "primary"}
           size="lg"
-          className={cn("w-full", highlighted && "bg-white text-[#3E1492] hover:bg-gray-100")}
+          className={cn("w-full", highlighted && "bg-white text-[#3E1480] ")}
         >
           {buttonText}
         </Button>

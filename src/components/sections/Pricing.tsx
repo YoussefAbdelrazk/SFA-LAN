@@ -3,7 +3,7 @@ import { pricingPlans } from "@/data";
 
 export default function Pricing() {
   return (
-    <div className="my-24 ">
+    <div className="my-24 text-[#344054] ">
       <h2 className="font-bold text-4xl text-center my-6 leading-tight max-w-lg mx-auto">
         Choose the <span className="text-[#3E1492]">Perfect Plan</span> for Your Fitness Journey
       </h2>

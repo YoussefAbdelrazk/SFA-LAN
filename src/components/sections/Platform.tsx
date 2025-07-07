@@ -18,7 +18,7 @@ export default function Platform() {
       </div>
 
       {/* content */}
-      <div className="space-y-6">
+      <div className="space-y-6 text-[#344054]">
         <h2 className="font-bold text-2xl sm:text-3xl md:text-4xl leading-tight max-w-xl">
           Why Choose <span className="text-[#3E1492]">Sherife Franca</span> Platform?
         </h2>

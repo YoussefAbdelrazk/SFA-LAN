@@ -4,7 +4,7 @@ import { testimonials } from "@/data";
 
 export default function Transformation() {
   return (
-    <Section id="testimonials" className="my-32 ">
+    <Section id="testimonials" className="my-32 text-[#344054] ">
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">
           Real Voices, <span className="text-[#3E1492]">Real Transformations</span>
@@ -19,7 +19,7 @@ export default function Transformation() {
       <div className="w-full max-w-7xl mx-auto ">
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 lg:gap-8 px-4 sm:px-6 lg:px-8 place-items-center overflow-x-hidden">
           {testimonials.map(testimonial => (
-            <div key={testimonial.id} className="w-full max-w-[360px] flex justify-center">
+            <div key={testimonial.id} className="w-full max-w-[360px] flex justify-center p-3">
               <TestimonialCard
                 name={testimonial.name}
                 role={testimonial.role}

@@ -31,7 +31,7 @@ export default function ContactForm({ className }: ContactFormProps) {
   return (
     <div className={cn("w-full max-w-md page-transition", className)}>
       <div className="mb-8 section-fade-in">
-        <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 transition-all duration-500 hover:text-[#3E1492]">
+        <h1 className="text-4xl md:text-5xl font-bold  mb-4 transition-all duration-500 hover:text-[#3E1492]">
           Get in Touch With{" "}
           <span className="text-[#3E1492] transition-all duration-300">
             Sherife Franca Platform
@@ -97,7 +97,7 @@ export default function ContactForm({ className }: ContactFormProps) {
             error={!!errors.name}
             isValid={isFieldValid("name")}
             icon={
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 text-[#3E1492]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -118,7 +118,7 @@ export default function ContactForm({ className }: ContactFormProps) {
             error={!!errors.email}
             isValid={isFieldValid("email")}
             icon={
-              <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="h-5 w-5 text-[#3E1492]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

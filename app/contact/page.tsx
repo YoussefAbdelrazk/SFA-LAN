@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export default function ContactPage() {
   return (
-    <div className="min-h-screen overflow-x-hidden my-20 ">
+    <div className="min-h-screen overflow-x-hidden my-20 text-[#344054] ">
       {/* Hero Section */}
       <Section className="bg-gradient-to-br from-gray-50 to-white pt-32 pb-16 ">
         <Container>
@@ -34,7 +34,7 @@ export default function ContactPage() {
       </Section>
 
       {/* Contact Info Cards */}
-      <Section className="bg-white ">
+      <Section className="bg-white text-[#344054] ">
         <Container>
           <ContactInfo />
         </Container>

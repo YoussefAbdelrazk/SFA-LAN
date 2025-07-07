@@ -1,4 +1,4 @@
-import { Hero, Platform, Pricing, Services, Stories, Transformation } from "@/components/sections";
+import { Hero, Platform, Pricing, Services, Stories, Transformation,  } from "@/components/sections";
 
 export default function Home() {
   return (
@@ -9,6 +9,8 @@ export default function Home() {
       <Stories />
       <Pricing />
       <Transformation />
+      {/* <Mock /> */}
+
     </div>
   );
 }

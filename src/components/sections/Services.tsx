@@ -4,9 +4,9 @@ import { services } from "@/data";
 
 export default function Services() {
   return (
-    <Section id="services">
+    <Section id="services text-[#344054]">
       <div className="text-center mb-12">
-        <h2 className="text-5xl font-bold mb-4">
+        <h2 className="text-5xl font-bold mb-4 text-[#344054]">
           Premium <span className="text-[#3E1492]">Fitness Services</span>
         </h2>
         <p className="text-lg text-[#475467] max-w-3xl mx-auto">
@@ -15,7 +15,7 @@ export default function Services() {
         </p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 ">
         {services.map((service, idx) => (
           <div key={idx} className="flex justify-center h-full">
             <ServiceCard

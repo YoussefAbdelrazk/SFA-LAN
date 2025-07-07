@@ -46,12 +46,12 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <ul className="hidden lg:flex items-center justify-between gap-10">
+          <ul className="hidden lg:flex items-center justify-between gap-10 text-[#344054]">
             {navbarLinks.map(link => (
               <li key={link.id} className="group relative">
                 <Link
                   href={link.href}
-                  className="font-semibold text-xl text-gray-900 hover:text-[#3E1492] transition-colors duration-300 relative"
+                  className="font-semibold text-xl text-[#344054] hover:text-[#3E1492] transition-colors duration-300 relative"
                 >
                   {link.name}
                   <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#3E1492] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100" />

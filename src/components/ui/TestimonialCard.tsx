@@ -19,7 +19,7 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
       <div
         ref={ref}
         className={cn(
-          "bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl  w-full max-w-[360px] overflow-hidden",
+          "bg-white rounded-2xl shadow-xl p-6 transition-all duration-300 hover:shadow-2xl  w-full max-w-[360px] overflow-hidden text-[#344054]",
           className,
         )}
         {...props}
@@ -30,7 +30,7 @@ const TestimonialCard = React.forwardRef<HTMLDivElement, TestimonialCardProps>(
             <Image src={image} alt={name} fill className="object-cover" sizes="64px" />
           </div>
           <div>
-            <h3 className="font-bold text-lg text-gray-900">{name}</h3>
+            <h3 className="font-bold text-lg 0">{name}</h3>
             <p className="text-gray-600 text-sm">{role}</p>
             <p className="text-gray-500 text-xs">Member since {memberSince}</p>
           </div>
