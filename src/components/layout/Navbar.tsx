@@ -30,7 +30,7 @@ export default function Navbar() {
   return (
     <>
       <header className="fixed top-0 left-0 right-0 bg-[#FCFCFD] p-4 rounded-b-3xl z-50 shadow-2xl w-full overflow-x-hidden">
-        <nav className="flex justify-between items-center max-w-[1140px] mx-auto overflow-x-hidden">
+        <nav className="flex justify-between items-center max-w-[1140px] mx-auto overflow-x-hidden px-4">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/">
