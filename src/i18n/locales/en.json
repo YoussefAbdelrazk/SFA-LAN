@@ -29,6 +29,28 @@
     "chooseLanguage": "Choose your preferred language",
     "languageSettingsSaved": "Language settings saved automatically"
   },
+  "validation": {
+    "name": {
+      "required": "Name is required",
+      "minLength": "Name must be at least 2 characters",
+      "maxLength": "Name must be less than 50 characters",
+      "invalidFormat": "Name can only contain letters and spaces"
+    },
+    "email": {
+      "required": "Email is required",
+      "invalidFormat": "Please enter a valid email address"
+    },
+    "message": {
+      "required": "Message is required",
+      "minLength": "Message must be at least 10 characters",
+      "maxLength": "Message must be less than 500 characters",
+      "invalidFormat": "Message can only contain letters, numbers, and punctuation"
+    },
+    "general": {
+      "unexpectedError": "An unexpected error occurred. Please try again.",
+      "submissionError": "An error occurred while sending your message. Please try again."
+    }
+  },
   "navigation": {
     "home": "Home",
     "aboutUs": "About Us",
@@ -202,9 +224,9 @@
         "title": "Email",
         "description": "For Inquiries and Support, Reach to Us"
       },
-      "chat": {
-        "title": "Live Chat",
-        "description": "Chat with Us - Immediate and Support"
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Chat with us on WhatsApp - Quick and convenient support"
       },
       "phone": {
         "title": "Phone",

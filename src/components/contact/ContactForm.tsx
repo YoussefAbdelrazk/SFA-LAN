@@ -132,6 +132,7 @@ export default function ContactForm({ className }: ContactFormProps) {
               </div>
             }
             className={locale === 'ar' ? 'text-left' : ''}
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
           />
         </FormField>
 
@@ -166,6 +167,7 @@ export default function ContactForm({ className }: ContactFormProps) {
               </div>
             }
             className={locale === 'ar' ? 'text-left' : ''}
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
           />
         </FormField>
 
@@ -178,6 +180,7 @@ export default function ContactForm({ className }: ContactFormProps) {
             error={!!errors.message}
             isValid={isFieldValid('message')}
             className={locale === 'ar' ? 'text-left' : ''}
+            dir={locale === 'ar' ? 'rtl' : 'ltr'}
           />
         </FormField>
 

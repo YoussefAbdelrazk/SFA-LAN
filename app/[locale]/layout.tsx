@@ -8,6 +8,7 @@ import { Footer, Navbar } from '@/components/layout';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import StructuredData from '@/components/StructuredData';
 import LayoutLoader from '@/components/ui/LayoutLoader';
+import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import '../globals.css';
 
 const geistSans = Geist({
@@ -162,6 +163,7 @@ export default async function LocaleLayout({
             {children}
           </main>
           <Footer />
+          <WhatsAppButton />
         </NextIntlClientProvider>
       </body>
     </html>

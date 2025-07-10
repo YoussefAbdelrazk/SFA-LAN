@@ -14,18 +14,21 @@ export default function Pricing() {
       title: t('basicPlan.title'),
       price: t('basicPlan.price'),
       features: t.raw('basicPlan.features'),
+      buttonText: commonT('getStarted'),
     },
     {
       ...pricingPlans[1],
       title: t('premiumPlan.title'),
       price: t('premiumPlan.price'),
       features: t.raw('premiumPlan.features'),
+      buttonText: commonT('getStarted'),
     },
     {
       ...pricingPlans[2],
       title: t('elitePlan.title'),
       price: t('elitePlan.price'),
       features: t.raw('elitePlan.features'),
+      buttonText: commonT('getStarted'),
     },
   ];
 

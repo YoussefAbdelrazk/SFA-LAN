@@ -29,6 +29,28 @@
     "chooseLanguage": "Choisissez votre langue préférée",
     "languageSettingsSaved": "Les paramètres de langue sont sauvegardés automatiquement"
   },
+  "validation": {
+    "name": {
+      "required": "Le nom est requis",
+      "minLength": "Le nom doit contenir au moins 2 caractères",
+      "maxLength": "Le nom doit contenir moins de 50 caractères",
+      "invalidFormat": "Le nom ne peut contenir que des lettres et des espaces"
+    },
+    "email": {
+      "required": "L'email est requis",
+      "invalidFormat": "Veuillez entrer une adresse email valide"
+    },
+    "message": {
+      "required": "Le message est requis",
+      "minLength": "Le message doit contenir au moins 10 caractères",
+      "maxLength": "Le message doit contenir moins de 500 caractères",
+      "invalidFormat": "Le message ne peut contenir que des lettres, des chiffres et de la ponctuation"
+    },
+    "general": {
+      "unexpectedError": "Une erreur inattendue s'est produite. Veuillez réessayer.",
+      "submissionError": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
+    }
+  },
   "navigation": {
     "home": "Accueil",
     "aboutUs": "À propos",
@@ -202,9 +224,9 @@
         "title": "Email",
         "description": "Pour les demandes et le support, contactez-nous"
       },
-      "chat": {
-        "title": "Chat en direct",
-        "description": "Chattez avec nous - Support immédiat"
+      "whatsapp": {
+        "title": "WhatsApp",
+        "description": "Chattez avec nous sur WhatsApp - Support rapide et pratique"
       },
       "phone": {
         "title": "Téléphone",

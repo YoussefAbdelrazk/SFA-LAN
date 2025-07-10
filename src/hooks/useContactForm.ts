@@ -1,21 +1,37 @@
-import { ContactFormData, contactFormSchema } from "@/lib/validations/contact";
-import { ContactSubmissionResult, submitContactForm } from "@/services/contact";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import {
+  ContactFormData,
+  createContactFormSchema,
+} from '@/lib/validations/contact';
+import { ContactSubmissionResult, submitContactForm } from '@/services/contact';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useLocale, useTranslations } from 'next-intl';
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 
 export function useContactForm() {
+  const locale = useLocale();
+  const t = useTranslations();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submissionResult, setSubmissionResult] = useState<ContactSubmissionResult | null>(null);
+  const [submissionResult, setSubmissionResult] =
+    useState<ContactSubmissionResult | null>(null);
+
+  // Create locale-specific validation schema with translation function
+  const contactFormSchema = createContactFormSchema(locale, (key: string) => {
+    try {
+      return t(key);
+    } catch {
+      return key; // Fallback to key if translation not found
+    }
+  });
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
-      name: "",
-      email: "",
-      message: "",
+      name: '',
+      email: '',
+      message: '',
     },
-    mode: "onChange", // Validate on change for better UX
+    mode: 'onChange', // Validate on change for better UX
   });
 
   const onSubmit = async (data: ContactFormData) => {
@@ -32,7 +48,10 @@ export function useContactForm() {
     } catch {
       setSubmissionResult({
         success: false,
-        message: "An unexpected error occurred. Please try again.",
+        message:
+          locale === 'ar'
+            ? 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.'
+            : 'An unexpected error occurred. Please try again.',
       });
     } finally {
       setIsSubmitting(false);

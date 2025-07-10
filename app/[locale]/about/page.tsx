@@ -8,6 +8,7 @@ import Image from 'next/image';
 
 export default function AboutPage() {
   const t = useTranslations('about');
+  const commonT = useTranslations('common');
 
   return (
     <div className='min-h-screen overflow-x-hidden'>
@@ -45,7 +46,7 @@ export default function AboutPage() {
             </p>
             <div className='flex flex-col sm:flex-row gap-4 mt-8'>
               <Button variant='primary' size='lg'>
-                Start Your Journey
+                {commonT('getStarted')}
               </Button>
             </div>
           </div>
