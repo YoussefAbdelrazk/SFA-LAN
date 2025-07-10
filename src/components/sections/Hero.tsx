@@ -10,7 +10,7 @@ export default function Hero() {
   const t = useTranslations('hero');
 
   return (
-    <section className='relative min-h-screen bg-gradient-to-br from-[#1a1442] via-[#3E1492] to-[#6B46C1] overflow-hidden '>
+    <section className='relative min-h-screen bg-gradient-to-br from-[#1a1442] via-[#3E1492] to-[#6B46C1] overflow-hidden  '>
       {/* Debug Info - Remove this later */}
       {/* <div className='absolute top-4 left-4 z-50 bg-black/80 text-white p-2 rounded text-xs'>
         <div>Current Locale: {locale}</div>
@@ -21,7 +21,7 @@ export default function Hero() {
       {/* Gradient Overlay */}
       <div className='absolute inset-0 bg-gradient-to-br from-[#1a1442]/90 via-[#3E1492]/80 to-[#6B46C1]/90'></div>
       {/* Content Container */}
-      <div className='relative z-10 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 py-20 max-w-7xl mx-auto'>
+      <div className='relative z-10 flex flex-col lg:flex-row items-center justify-center min-h-screen px-4 py-32 md:py-20 max-w-7xl mx-auto'>
         {/* Text Content */}
         <div className='text-center lg:text-left lg:w-1/2 space-y-8 mb-12 lg:mb-0 hero-text-animate'>
           <div className='space-y-6'>
