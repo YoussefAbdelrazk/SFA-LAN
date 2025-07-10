@@ -1,29 +1,29 @@
-import type { NavbarLink } from "@/types";
+import type { NavbarLink } from '@/types';
 
 export const navbarLinks: NavbarLink[] = [
   {
     id: 1,
-    name: "Home",
-    href: "/",
+    name: 'home',
+    href: '/',
   },
   {
     id: 2,
-    name: "About Us",
-    href: "/about",
+    name: 'aboutUs',
+    href: '/about',
   },
   {
     id: 3,
-    name: "Privacy & Policy",
-    href: "/privacy-policy",
+    name: 'contact',
+    href: '/contact',
   },
   {
     id: 4,
-    name: "FAQ",
-    href: "/faq",
+    name: 'faq',
+    href: '/faq',
   },
   {
     id: 5,
-    name: "Contact",
-    href: "/contact",
+    name: 'privacyPolicy',
+    href: '/privacy-policy',
   },
 ];

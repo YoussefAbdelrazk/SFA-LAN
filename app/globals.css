@@ -1,22 +1,139 @@
-@import "tailwindcss";
-@import "tw-animate-css";
+@import 'tailwindcss';
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
 /* Global overflow hidden to prevent horizontal scrolling */
-html, body {
+html,
+body {
   overflow-x: hidden;
   max-width: 100vw;
   scroll-behavior: smooth;
 }
 
+/* RTL Support */
+[dir='rtl'] {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir='rtl'] .text-left {
+  text-align: right;
+}
+
+[dir='rtl'] .text-right {
+  text-align: left;
+}
+
+[dir='rtl'] .left-0 {
+  left: auto;
+  right: 0;
+}
+
+[dir='rtl'] .right-0 {
+  right: auto;
+  left: 0;
+}
+
+[dir='rtl'] .ml-auto {
+  margin-left: 0;
+  margin-right: auto;
+}
+
+[dir='rtl'] .mr-auto {
+  margin-right: 0;
+  margin-left: auto;
+}
+
+[dir='rtl'] .pl-3 {
+  padding-left: 0;
+  padding-right: 0.75rem;
+}
+
+[dir='rtl'] .pr-3 {
+  padding-right: 0;
+  padding-left: 0.75rem;
+}
+
+[dir='rtl'] .translate-x-1 {
+  transform: translateX(-0.25rem);
+}
+
+[dir='rtl'] .-translate-x-1 {
+  transform: translateX(0.25rem);
+}
+
 /* Smooth hover effects for interactive elements */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
 
 /* Smooth image loading */
+.image-fade-in {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* Smooth card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
 
 /* Smooth page transitions */
+.page-transition {
+  transition: opacity 0.3s ease-in-out;
+}
+
+/* Hero specific animations */
+.hero-text-animate {
+  animation: slideInUp 0.8s ease-out;
+}
+
+.hero-image-animate {
+  animation: slideInRight 0.8s ease-out 0.2s both;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
 
 /* About Us Background Image Styling */
 .about-hero-bg {
@@ -58,32 +175,41 @@ html, body {
   bottom: 0;
   height: 2px;
   width: 100%;
-  background: #3E1492;
+  background: #3e1492;
   transform: scaleX(0);
   transform-origin: left;
   border-radius: 2px;
-  transition: transform 0.35s cubic-bezier(0.4,0,0.2,1);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+[dir='rtl'] .nav-underline {
+  transform-origin: right;
+}
+
 .group:hover .nav-underline {
   transform: scaleX(1);
 }
 
-.Hero{
-  background-image: url("../public//Background.jpg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: 835px;
+/* Hero Section Styles */
+.Hero {
+  background: linear-gradient(135deg, #1a1442 0%, #3e1492 50%, #6b46c1 100%);
+  min-height: 100vh;
   width: 100%;
   position: relative;
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
 
+/* Hero responsive adjustments */
+@media (max-width: 768px) {
+  .Hero {
+    min-height: 100vh;
+    padding: 2rem 1rem;
+  }
 }
 
 /* Updated About section with proper background positioning */
 .about {
-  background-image: url("../src/assets/images/aboutUs.png");
+  background-image: url('../src/assets/images/aboutUs.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -95,7 +221,7 @@ html, body {
 
 /* Alternative background images for different sections */
 .about-background {
-  background-image: url("../src/assets/images/aboutUs.png");
+  background-image: url('../src/assets/images/aboutUs.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -108,14 +234,14 @@ html, body {
 /* Mobile background image change */
 @media (max-width: 768px) {
   .about-background {
-    background-image: url("../src/assets/images/Background.jpg");
+    background-image: url('../src/assets/images/Background.jpg');
     background-attachment: scroll;
     min-height: 100vh;
   }
 }
 
 .about-grid {
-  background-image: url("../src/assets/images/AboutUsGrid.jpg");
+  background-image: url('../src/assets/images/AboutUsGrid.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -126,7 +252,7 @@ html, body {
 
 /* privacy */
 .privacy-background {
-  background-image: url("../src/assets/images//Privcy.jpg");
+  background-image: url('../src/assets/images//Privcy.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -139,14 +265,14 @@ html, body {
 /* Mobile background image change */
 @media (max-width: 768px) {
   .privacy-background {
-    background-image: url("../src/assets/images/Background.jpg");
+    background-image: url('../src/assets/images/Background.jpg');
     background-attachment: scroll;
     min-height: 100vh;
   }
 }
 
 .privacy-grid {
-  background-image: url("../src/assets/images/AboutUsGrid.jpg");
+  background-image: url('../src/assets/images/AboutUsGrid.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -157,7 +283,7 @@ html, body {
 
 /* FAQ */
 .faq-background {
-  background-image: url("../src/assets/images//FAQ.jpg");
+  background-image: url('../src/assets/images//FAQ.jpg');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -170,7 +296,7 @@ html, body {
 /* Mobile background image change */
 @media (max-width: 768px) {
   .faq-background {
-    background-image: url("../src/assets/images/Background.jpg");
+    background-image: url('../src/assets/images/Background.jpg');
     background-attachment: scroll;
     min-height: 100vh;
   }
@@ -183,6 +309,21 @@ html, body {
   width: 100% !important;
   height: 100vh !important;
   max-height: 100vh !important;
+}
+
+/* Language Dropdown Fixes */
+.language-dropdown {
+  z-index: 9999 !important;
+  position: absolute !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Ensure dropdown is always on top */
+[data-dropdown] {
+  z-index: 9999 !important;
+  position: relative !important;
 }
 
 .navbar-mobile-menu * {

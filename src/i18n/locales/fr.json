@@ -1,0 +1,258 @@
+{
+  "common": {
+    "loading": "Chargement...",
+    "joinNow": "Rejoignez-nous",
+    "getStarted": "Commencer",
+    "learnMore": "En savoir plus",
+    "downloadApp": "Télécharger l'application maintenant",
+    "useWebPlatform": "Utiliser la plateforme web",
+    "startYourJourney": "Commencez votre voyage",
+    "contactUs": "Contactez-nous",
+    "submit": "Soumettre",
+    "submitting": "Soumission...",
+    "name": "Nom",
+    "email": "Email",
+    "message": "Message",
+    "phone": "Téléphone",
+    "address": "Adresse",
+    "website": "Site web",
+    "followUs": "Suivez-nous",
+    "privacyPolicy": "Politique de confidentialité",
+    "termsOfService": "Conditions de service",
+    "cookiesSettings": "Paramètres des cookies",
+    "allRightsReserved": "Tous droits réservés",
+    "monthly": "Mensuel",
+    "yearly": "Annuel",
+    "month": "mois",
+    "year": "année",
+    "selectLanguage": "Sélectionner la langue",
+    "chooseLanguage": "Choisissez votre langue préférée",
+    "languageSettingsSaved": "Les paramètres de langue sont sauvegardés automatiquement"
+  },
+  "navigation": {
+    "home": "Accueil",
+    "aboutUs": "À propos",
+    "services": "Services",
+    "pricing": "Tarifs",
+    "testimonials": "Témoignages",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "hero": {
+    "title": "Mettez-vous en forme. Payez moins.\nRestez fort avec\nl'application Sherife Franca",
+    "subtitle": "Rejoignez la plateforme Sherife Franca aujourd'hui, avec des programmes personnalisés et une communauté de soutien pour atteindre vos objectifs de fitness.",
+    "downloadApp": "Télécharger l'application maintenant",
+    "useWebPlatform": "Utiliser la plateforme web"
+  },
+  "platform": {
+    "title": "Pourquoi choisir la plateforme Sherife Franca ?",
+    "subtitle": "Découvrez les avantages qui nous distinguent et propulsent votre parcours fitness vers l'avant.",
+    "expertTrainers": {
+      "title": "Entraîneurs experts",
+      "description": "Nos entraîneurs certifiés fournissent des conseils personnalisés et des conseils d'experts pour vous aider à atteindre vos objectifs de fitness."
+    },
+    "stateOfTheArtEquipment": {
+      "title": "Équipement de pointe",
+      "description": "Entraînez-vous avec le dernier équipement de fitness le plus avancé pour maximiser vos résultats et améliorer votre expérience."
+    },
+    "comprehensivePrograms": {
+      "title": "Programmes complets",
+      "description": "Profitez d'une variété de cours et de programmes adaptés à tous les niveaux de fitness, du débutant au niveau avancé."
+    },
+    "getStartedNow": "Commencez maintenant"
+  },
+  "services": {
+    "title": "Services de fitness premium",
+    "subtitle": "Entraînements personnalisés, conseils d'experts et programmes complets pour répondre à tous vos besoins de fitness",
+    "personalTraining": {
+      "title": "Entraînement personnel",
+      "description": "Sessions individuelles avec des entraîneurs certifiés pour créer des plans d'entraînement personnalisés qui correspondent à vos objectifs et à votre niveau de fitness."
+    },
+    "groupClasses": {
+      "title": "Cours collectifs",
+      "description": "Sessions de groupe haute énergie incluant yoga, pilates, HIIT et musculation pour tous les niveaux de fitness."
+    },
+    "nutritionGuidance": {
+      "title": "Conseils nutritionnels",
+      "description": "Conseils nutritionnels d'experts et planification des repas pour compléter votre parcours fitness et maximiser les résultats."
+    },
+    "wellnessPrograms": {
+      "title": "Programmes de bien-être",
+      "description": "Programmes de bien-être complets incluant méditation, gestion du stress et sessions de récupération."
+    },
+    "fitnessAssessment": {
+      "title": "Évaluation fitness",
+      "description": "Évaluations fitness régulières et suivi des progrès pour surveiller votre amélioration et ajuster votre programme."
+    },
+    "onlineCoaching": {
+      "title": "Coaching en ligne",
+      "description": "Sessions d'entraînement virtuelles et coaching à distance pour ceux qui préfèrent s'entraîner depuis chez eux."
+    }
+  },
+  "pricing": {
+    "title": "Choisissez le plan parfait pour votre parcours fitness",
+    "subtitle": "Options d'adhésion flexibles pour s'adapter à vos objectifs et à votre style de vie. Trouvez la bonne formule et commencez à transformer votre vie aujourd'hui !",
+    "basicPlan": {
+      "title": "Plan de base",
+      "price": "19€",
+      "features": [
+        "Toutes les fonctionnalités gratuites",
+        "Plan d'entraînement personnalisé",
+        "Suivi des progrès et analyses",
+        "Expérience 75% sans publicité"
+      ]
+    },
+    "premiumPlan": {
+      "title": "Plan premium",
+      "price": "40€",
+      "features": [
+        "Toutes les fonctionnalités gratuites",
+        "Plan d'entraînement personnalisé",
+        "Suivi des progrès et analyses",
+        "Sessions d'entraînement personnel",
+        "Accès aux programmes de bien-être"
+      ]
+    },
+    "elitePlan": {
+      "title": "Plan élite",
+      "price": "60€",
+      "features": [
+        "Toutes les fonctionnalités premium",
+        "Rapport de santé mensuel",
+        "Synchronisation des appareils intelligents",
+        "100% sans publicité",
+        "Support prioritaire"
+      ]
+    }
+  },
+  "testimonials": {
+    "title": "Vraies voix, vraies transformations",
+    "subtitle": "Écoutez nos membres qui ont transformé leur vie grâce à nos programmes. Leurs histoires nous inspirent chaque jour.",
+    "memberSince": "Membre depuis",
+    "rating": "évaluation"
+  },
+  "stories": {
+    "title": "Histoires de succès inspirantes de la plateforme Sherife Franca",
+    "subtitle": "Chez Sherife Franca Platform, nous célébrons les parcours incroyables de nos membres. Des triomphes de perte de poids et des étapes de prise de muscle à l'amélioration du bien-être et la nouvelle confiance, les histoires de succès de nos membres mettent en évidence le pouvoir de l'engagement et de la communauté. Découvrez ces témoignages inspirants et voyez comment la plateforme Sherife Franca peut vous aider à atteindre vos objectifs de fitness.",
+    "joinToday": "Rejoignez-nous aujourd'hui"
+  },
+  "about": {
+    "hero": {
+      "title": "Découvrez les qualités uniques de la plateforme Sherife Franca",
+      "subtitle": "Nous croyons que le fitness est plus qu'une simple routine ; c'est un mode de vie. Fondée avec la mission d'inspirer et d'autonomiser les individus dans leurs parcours fitness."
+    },
+    "story": {
+      "title": "Notre histoire",
+      "content": "Chez Sherife Franca Platform, nous croyons que le fitness est plus qu'une simple routine ; c'est un mode de vie. Fondée avec la mission d'inspirer et d'autonomiser les individus dans leurs parcours fitness, nous offrons une gamme complète de services conçus pour répondre aux besoins uniques de chaque membre. Nos installations de pointe, nos entraîneurs experts et notre communauté dynamique créent un environnement où la transformation se produit naturellement.",
+      "content2": "Nos installations de pointe, nos entraîneurs experts et notre communauté de soutien créent l'environnement parfait pour vous aider à atteindre vos objectifs de fitness, que vous commenciez votre parcours ou que vous cherchiez à passer votre entraînement au niveau supérieur."
+    },
+    "impact": {
+      "title": "Notre Impact",
+      "subtitle": "Faire une différence dans notre communauté",
+      "stats": {
+        "members": "1000+",
+        "membersLabel": "Membres Heureux",
+        "trainers": "50+",
+        "trainersLabel": "Entraîneurs Experts",
+        "experience": "5+",
+        "experienceLabel": "Années d'Expérience",
+        "access": "24/7",
+        "accessLabel": "Accès Disponible"
+      }
+    },
+    "mission": {
+      "title": "Notre Mission",
+      "subtitle": "Autonomiser les individus pour atteindre leurs objectifs de fitness grâce à un entraînement personnalisé, des programmes innovants et une communauté de soutien qui célèbre chaque victoire, peu importe sa taille.",
+      "values": {
+        "strength": {
+          "title": "Force",
+          "description": "Développer la force physique et mentale grâce à des méthodes d'entraînement éprouvées"
+        },
+        "community": {
+          "title": "Communauté",
+          "description": "Créer des connexions durables et des systèmes de soutien pour le bien-être à vie"
+        },
+        "results": {
+          "title": "Résultats",
+          "description": "Livrer des résultats mesurables grâce à des programmes de fitness personnalisés"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Contactez la plateforme Sherife Franca",
+    "subtitle": "Nous sommes là pour vous aider dans votre parcours fitness. Contactez-nous pour toute question ou pour planifier une visite !",
+    "form": {
+      "namePlaceholder": "Entrez votre nom complet",
+      "emailPlaceholder": "Entrez votre adresse email",
+      "messagePlaceholder": "Parlez-nous de vos objectifs fitness et comment nous pouvons vous aider...",
+      "submitNow": "Soumettre maintenant",
+      "successMessage": "Merci ! Votre message a été envoyé avec succès. Nous vous répondrons bientôt.",
+      "errorMessage": "Une erreur s'est produite lors de l'envoi de votre message. Veuillez réessayer."
+    },
+    "info": {
+      "address": "123 Rue du Fitness, Ville Santé, VS 12345",
+      "phone": "+33 (0)1 23 45 67 89",
+      "email": "info@sherife-franca.com",
+      "hours": "Lundi - Vendredi : 6h00 - 22h00\nSamedi - Dimanche : 8h00 - 20h00"
+    },
+    "cards": {
+      "email": {
+        "title": "Email",
+        "description": "Pour les demandes et le support, contactez-nous"
+      },
+      "chat": {
+        "title": "Chat en direct",
+        "description": "Chattez avec nous - Support immédiat"
+      },
+      "phone": {
+        "title": "Téléphone",
+        "description": "Parlez directement avec notre équipe"
+      }
+    }
+  },
+  "faq": {
+    "title": "Questions fréquemment posées",
+    "questions": [
+      {
+        "question": "Quels niveaux de fitness accueillez-vous ?",
+        "answer": "Nous accueillons tous les niveaux de fitness, des débutants complets aux athlètes avancés. Nos entraîneurs évalueront votre niveau actuel et créeront un programme personnalisé qui vous convient."
+      },
+      {
+        "question": "Proposez-vous des sessions d'entraînement personnel ?",
+        "answer": "Oui ! Nous proposons des sessions d'entraînement personnel individuelles avec des entraîneurs certifiés qui créeront des plans d'entraînement personnalisés basés sur vos objectifs et votre niveau de fitness."
+      },
+      {
+        "question": "Quel équipement et quelles installations avez-vous ?",
+        "answer": "Nos installations comprennent du matériel cardio de pointe, des poids libres, des machines de résistance, des zones d'entraînement fonctionnel et des espaces dédiés aux cours collectifs et au yoga."
+      },
+      {
+        "question": "Puis-je annuler ou modifier mon adhésion ?",
+        "answer": "Oui, vous pouvez modifier ou annuler votre adhésion à tout moment. Nous proposons des options d'adhésion flexibles pour s'adapter à vos besoins et à votre style de vie."
+      },
+      {
+        "question": "Proposez-vous des conseils nutritionnels ?",
+        "answer": "Absolument ! Nos nutritionnistes certifiés fournissent des plans de repas personnalisés et des conseils diététiques pour compléter votre parcours fitness et vous aider à atteindre des résultats optimaux."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Transformez votre vie avec la plateforme Sherife Franca. Rejoignez notre communauté et commencez votre parcours fitness aujourd'hui.",
+    "quickLinks": "Liens rapides",
+    "services": "Services",
+    "contact": "Contact",
+    "socialMedia": "Suivez-nous sur les réseaux sociaux"
+  },
+  "privacy": {
+    "title": "Confidentialité et Politique",
+    "preferences": {
+      "title": "Préférences de Confidentialité et Politique",
+      "content": "Lorsque vous visitez des sites web, ils peuvent stocker ou récupérer des données dans votre navigateur. Ce stockage est souvent nécessaire pour les fonctionnalités de base du site web. Le stockage peut être utilisé pour le marketing, l'analyse et la personnalisation du site, comme le stockage de vos préférences. La confidentialité est importante pour nous, vous avez donc la possibilité de désactiver certains types de stockage qui peuvent ne pas être nécessaires au fonctionnement de base du site web. Le blocage de catégories peut avoir un impact sur votre expérience sur le site web."
+    },
+    "information": {
+      "title": "Informations que vous nous fournissez directement",
+      "content": "Ce sont des informations que vous nous donnez volontairement, telles que : Informations du compte : Votre nom, adresse e-mail, nom d'utilisateur, mot de passe et préférences de contact lorsque vous créez un compte."
+    }
+  }
+}

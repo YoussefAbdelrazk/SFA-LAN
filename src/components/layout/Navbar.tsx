@@ -2,8 +2,10 @@
 
 import logo from '@/assets/images/logo.png';
 import { Button } from '@/components/ui';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { navbarLinks } from '@/data';
 import { cn } from '@/lib/utils';
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
@@ -11,6 +13,9 @@ import { useEffect, useState } from 'react';
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const t = useTranslations('navigation');
+  const commonT = useTranslations('common');
+  const locale = useLocale();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -36,16 +41,19 @@ export default function Navbar() {
 
   return (
     <>
-      <header className='fixed top-0 left-0 right-0 bg-[#FCFCFD] p-4 rounded-b-3xl z-50 shadow-2xl w-full overflow-x-hidden'>
-        <nav className='flex justify-between items-center max-w-[1140px] mx-auto overflow-x-hidden px-4'>
+      <header className='fixed top-0 left-0 right-0 bg-white/95 backdrop-blur-md p-4 rounded-b-3xl z-50 shadow-2xl w-full overflow-x-hidden border-b border-gray-200/50'>
+        <nav className='flex justify-between items-center max-w-[1240px] mx-auto overflow-x-hidden px-4'>
           {/* Logo */}
           <div className='flex-shrink-0'>
-            <Link href='/'>
+            <Link
+              href={`/${locale}`}
+              className='hover:scale-105 transition-transform duration-300'
+            >
               <Image
                 src={logo}
                 alt='Sherife Franca Logo'
-                width={100}
-                height={100}
+                width={120}
+                height={40}
                 className='h-auto w-auto'
                 priority
               />
@@ -53,24 +61,29 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Menu */}
-          <ul className='hidden lg:flex items-center justify-between gap-10 text-[#344054]'>
+          <ul className='hidden lg:flex items-center justify-between gap-8 text-gray-700'>
             {navbarLinks.map((link) => (
               <li key={link.id} className='group relative'>
                 <Link
-                  href={link.href}
-                  className='font-semibold text-xl text-[#344054] hover:text-[#3E1492] transition-colors duration-300 relative'
+                  href={`/${locale}${link.href}`}
+                  className='font-semibold text-lg text-gray-700 hover:text-[#3E1492] transition-all duration-300 relative py-2'
                 >
-                  {link.name}
+                  {t(link.name as keyof typeof t)}
                   <span className='absolute bottom-0 left-0 w-full h-0.5 bg-[#3E1492] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100' />
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Desktop CTA Button */}
-          <div className='hidden lg:block'>
-            <Button variant='primary' size='md'>
-              Join Now
+          {/* Desktop CTA Button and Language Switcher */}
+          <div className='hidden lg:flex items-center gap-6'>
+            <LanguageSwitcher />
+            <Button
+              variant='primary'
+              size='md'
+              className='bg-gradient-to-r from-[#3E1492] to-[#6B46C1] hover:from-[#6B46C1] hover:to-[#3E1492] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'
+            >
+              {commonT('joinNow')}
             </Button>
           </div>
 
@@ -131,7 +144,7 @@ export default function Navbar() {
                 <div
                   key={link.id}
                   className={cn(
-                    'transform transition-all duration-700 ease-out mobile-menu-item',
+                    'transform transition-all duration-700 ease-out mobile-menu-item z-90',
                     menuOpen
                       ? 'translate-y-0 opacity-100'
                       : 'translate-y-8 opacity-0'
@@ -139,17 +152,32 @@ export default function Navbar() {
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <Link
-                    href={link.href}
+                    href={`/${locale}${link.href}`}
                     onClick={() => setMenuOpen(false)}
-                    className='block text-white mobile-menu-text font-bold hover:text-yellow-300 transition-all duration-300 transform  group py-1'
+                    className='block text-white mobile-menu-text font-bold hover:text-yellow-300 transition-all duration-300 transform group py-1'
                   >
                     <span className='relative'>
-                      {link.name}
-                      <span className='absolute bottom-0 left-0 w-full h-1 bg-yellow-300 transform scale-x-0 origin-left transition-transform duration-300 '></span>
+                      {t(link.name as keyof typeof t)}
+                      <span className='absolute bottom-0 left-0 w-full h-1 bg-yellow-300 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100'></span>
                     </span>
                   </Link>
                 </div>
               ))}
+
+              {/* Language Switcher for Mobile */}
+              <div
+                className={cn(
+                  'transform transition-all duration-700 ease-out mt-4 mobile-menu-item',
+                  menuOpen
+                    ? 'translate-y-0 opacity-100'
+                    : 'translate-y-2 opacity-0'
+                )}
+                style={{ transitionDelay: `${navbarLinks.length * 100}ms` }}
+              >
+                <div className='flex justify-center'>
+                  <LanguageSwitcher />
+                </div>
+              </div>
 
               {/* CTA Button */}
               <div
@@ -159,7 +187,9 @@ export default function Navbar() {
                     ? 'translate-y-0 opacity-100'
                     : 'translate-y-8 opacity-0'
                 )}
-                style={{ transitionDelay: `${navbarLinks.length * 100}ms` }}
+                style={{
+                  transitionDelay: `${(navbarLinks.length + 1) * 100}ms`,
+                }}
               >
                 <Button
                   variant='primary'
@@ -167,25 +197,10 @@ export default function Navbar() {
                   className='bg-white text-[#3E1492] hover:bg-yellow-300 hover:text-[#1a1442] transition-all duration-300 px-6 py-2 text-base font-bold shadow-2xl'
                   onClick={() => setMenuOpen(false)}
                 >
-                  🚀 Join Now
+                  🚀 {commonT('joinNow')}
                 </Button>
               </div>
             </nav>
-
-            {/* Decorative Elements */}
-            <div className='absolute bottom-4 left-1/2 transform -translate-x-1/2'>
-              <div className='flex space-x-2'>
-                <div className='w-1.5 h-1.5 bg-white/50 rounded-full animate-pulse'></div>
-                <div
-                  className='w-1.5 h-1.5 bg-white/30 rounded-full animate-pulse'
-                  style={{ animationDelay: '0.2s' }}
-                ></div>
-                <div
-                  className='w-1.5 h-1.5 bg-white/50 rounded-full animate-pulse'
-                  style={{ animationDelay: '0.4s' }}
-                ></div>
-              </div>
-            </div>
           </div>
         </div>
       )}

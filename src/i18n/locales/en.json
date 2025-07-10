@@ -1,0 +1,258 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "joinNow": "Join Now",
+    "getStarted": "Get Started",
+    "learnMore": "Learn More",
+    "downloadApp": "Download App Now",
+    "useWebPlatform": "Use Web Platform",
+    "startYourJourney": "Start Your Journey",
+    "contactUs": "Contact Us",
+    "submit": "Submit",
+    "submitting": "Submitting...",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "phone": "Phone",
+    "address": "Address",
+    "website": "Website",
+    "followUs": "Follow Us",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service",
+    "cookiesSettings": "Cookies Settings",
+    "allRightsReserved": "All Rights Reserved",
+    "monthly": "Monthly",
+    "yearly": "Yearly",
+    "month": "month",
+    "year": "year",
+    "selectLanguage": "Select Language",
+    "chooseLanguage": "Choose your preferred language",
+    "languageSettingsSaved": "Language settings saved automatically"
+  },
+  "navigation": {
+    "home": "Home",
+    "aboutUs": "About Us",
+    "services": "Services",
+    "pricing": "Pricing",
+    "testimonials": "Testimonials",
+    "contact": "Contact",
+    "faq": "FAQ",
+    "privacyPolicy": "Privacy Policy"
+  },
+  "hero": {
+    "title": "Get Fit. Pay Less.\nStay Strong with\nSherife Franca App",
+    "subtitle": "Join Sherife Franca Platform Today and, Personalized Programs, and a Supportive Community to Achieve Your Fitness Goals.",
+    "downloadApp": "Download App Now",
+    "useWebPlatform": "Use Web Platform"
+  },
+  "platform": {
+    "title": "Why Choose Sherife Franca Platform?",
+    "subtitle": "Discover the Benefits That Set Us Apart and Propel Your Fitness Journey Forward.",
+    "expertTrainers": {
+      "title": "Expert Trainers",
+      "description": "Our certified trainers provide personalized guidance and expert advice to help you achieve your fitness goals."
+    },
+    "stateOfTheArtEquipment": {
+      "title": "State-of-the-Art Equipment",
+      "description": "Work out with the latest and most advanced fitness equipment to maximize your results and enhance your experience."
+    },
+    "comprehensivePrograms": {
+      "title": "Comprehensive Programs",
+      "description": "Enjoy a variety of classes and programs tailored to all fitness levels, from beginner to advanced."
+    },
+    "getStartedNow": "Get Started Now"
+  },
+  "services": {
+    "title": "Premium Fitness Services",
+    "subtitle": "Tailored Workouts, Expert Guidance, and Comprehensive Programs to Meet All Your Fitness Needs",
+    "personalTraining": {
+      "title": "Personal Training",
+      "description": "One-on-one sessions with certified trainers to create personalized workout plans that match your goals and fitness level."
+    },
+    "groupClasses": {
+      "title": "Group Classes",
+      "description": "High-energy group sessions including yoga, pilates, HIIT, and strength training for all fitness levels."
+    },
+    "nutritionGuidance": {
+      "title": "Nutrition Guidance",
+      "description": "Expert nutrition advice and meal planning to complement your fitness journey and maximize results."
+    },
+    "wellnessPrograms": {
+      "title": "Wellness Programs",
+      "description": "Comprehensive wellness programs including meditation, stress management, and recovery sessions."
+    },
+    "fitnessAssessment": {
+      "title": "Fitness Assessment",
+      "description": "Regular fitness assessments and progress tracking to monitor your improvement and adjust your program."
+    },
+    "onlineCoaching": {
+      "title": "Online Coaching",
+      "description": "Virtual training sessions and remote coaching for those who prefer to work out from home."
+    }
+  },
+  "pricing": {
+    "title": "Choose the Perfect Plan for Your Fitness Journey",
+    "subtitle": "Flexible Membership Options to Suit Your Goals and Lifestyle. Find the Right Fit and Start Transforming Your Life Today!",
+    "basicPlan": {
+      "title": "Basic Plan",
+      "price": "$19",
+      "features": [
+        "All Free Features",
+        "Personalized Workout Plan",
+        "Progress Tracking & Analytics",
+        "75% Ads Free Experience"
+      ]
+    },
+    "premiumPlan": {
+      "title": "Premium Plan",
+      "price": "$40",
+      "features": [
+        "All Free Features",
+        "Personalized Workout Plan",
+        "Progress Tracking & Analytics",
+        "Personal Training Sessions",
+        "Access to Wellness Programs"
+      ]
+    },
+    "elitePlan": {
+      "title": "Elite Plan",
+      "price": "$60",
+      "features": [
+        "All Premium Features",
+        "Monthly Health Report",
+        "Smart Device Sync",
+        "100% Ads Free",
+        "Priority Support"
+      ]
+    }
+  },
+  "testimonials": {
+    "title": "Real Voices, Real Transformations",
+    "subtitle": "Hear from our members who have transformed their lives through our programs. Their stories inspire us every day.",
+    "memberSince": "Member since",
+    "rating": "rating"
+  },
+  "stories": {
+    "title": "Inspiring Success Stories from Sherife Franca Platform",
+    "subtitle": "Sherife Franca Platform, we celebrate the incredible journeys of our members. From weight loss triumphs and muscle gain milestones to enhanced well-being and newfound confidence, our members' success stories highlight the power of commitment and community. Explore these inspiring testimonials and see how Sherife Franca Platform can help you reach your fitness goals.",
+    "joinToday": "Join Today"
+  },
+  "about": {
+    "hero": {
+      "title": "Discover the Unique Qualities About Sherife Franca Platform",
+      "subtitle": "We believe that fitness is more than just a routine; it's a way of life. Founded with the mission to inspire and empower individuals on their fitness journeys."
+    },
+    "story": {
+      "title": "Our Story",
+      "content": "At Sherife Franca Platform, we believe that fitness is more than just a routine; it's a way of life. Founded with the mission to inspire and empower individuals on their fitness journeys, we offer a comprehensive range of services tailored to meet the unique needs of each member. Our state-of-the-art facility, expert trainers, and vibrant community create an environment where transformation happens naturally.",
+      "content2": "Our state-of-the-art facilities, expert trainers, and supportive community create the perfect environment for you to achieve your fitness goals, whether you're just starting your journey or looking to take your training to the next level."
+    },
+    "impact": {
+      "title": "Our Impact",
+      "subtitle": "Making a difference in our community",
+      "stats": {
+        "members": "1000+",
+        "membersLabel": "Happy Members",
+        "trainers": "50+",
+        "trainersLabel": "Expert Trainers",
+        "experience": "5+",
+        "experienceLabel": "Years Experience",
+        "access": "24/7",
+        "accessLabel": "Access Available"
+      }
+    },
+    "mission": {
+      "title": "Our Mission",
+      "subtitle": "To empower individuals to achieve their fitness goals through personalized training, innovative programs, and a supportive community that celebrates every victory, no matter how small.",
+      "values": {
+        "strength": {
+          "title": "Strength",
+          "description": "Building physical and mental strength through proven training methods"
+        },
+        "community": {
+          "title": "Community",
+          "description": "Creating lasting connections and support systems for lifelong wellness"
+        },
+        "results": {
+          "title": "Results",
+          "description": "Delivering measurable results through personalized fitness programs"
+        }
+      }
+    }
+  },
+  "contact": {
+    "title": "Get in Touch With Sherife Franca Platform",
+    "subtitle": "We're Here to Help You on Your Fitness Journey. Reach Out to Us with Any Questions or to Schedule a Visit!",
+    "form": {
+      "namePlaceholder": "Enter your full name",
+      "emailPlaceholder": "Enter your email address",
+      "messagePlaceholder": "Tell us about your fitness goals and how we can help you...",
+      "submitNow": "Submit Now",
+      "successMessage": "Thank you! Your message has been sent successfully. We'll get back to you soon.",
+      "errorMessage": "An error occurred while sending your message. Please try again."
+    },
+    "info": {
+      "address": "123 Fitness Street, Health City, HC 12345",
+      "phone": "+1 (555) 123-4567",
+      "email": "info@sherife-franca.com",
+      "hours": "Monday - Friday: 6:00 AM - 10:00 PM\nSaturday - Sunday: 8:00 AM - 8:00 PM"
+    },
+    "cards": {
+      "email": {
+        "title": "Email",
+        "description": "For Inquiries and Support, Reach to Us"
+      },
+      "chat": {
+        "title": "Live Chat",
+        "description": "Chat with Us - Immediate and Support"
+      },
+      "phone": {
+        "title": "Phone",
+        "description": "Speak with Our Team Directly"
+      }
+    }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "questions": [
+      {
+        "question": "What fitness levels do you accommodate?",
+        "answer": "We welcome all fitness levels, from complete beginners to advanced athletes. Our trainers will assess your current level and create a personalized program that's right for you."
+      },
+      {
+        "question": "Do you offer personal training sessions?",
+        "answer": "Yes! We offer one-on-one personal training sessions with certified trainers who will create customized workout plans based on your goals and fitness level."
+      },
+      {
+        "question": "What equipment and facilities do you have?",
+        "answer": "Our facility features state-of-the-art cardio equipment, free weights, resistance machines, functional training areas, and dedicated spaces for group classes and yoga."
+      },
+      {
+        "question": "Can I cancel or modify my membership?",
+        "answer": "Yes, you can modify or cancel your membership at any time. We offer flexible membership options to suit your needs and lifestyle."
+      },
+      {
+        "question": "Do you offer nutrition guidance?",
+        "answer": "Absolutely! Our certified nutritionists provide personalized meal plans and dietary advice to complement your fitness journey and help you achieve optimal results."
+      }
+    ]
+  },
+  "footer": {
+    "description": "Transform your life with Sherife Franca Platform. Join our community and start your fitness journey today.",
+    "quickLinks": "Quick Links",
+    "services": "Services",
+    "contact": "Contact",
+    "socialMedia": "Follow us on social media"
+  },
+  "privacy": {
+    "title": "Privacy and Policy",
+    "preferences": {
+      "title": "Preferences of Privacy and Policy",
+      "content": "When you visit websites, they may store or retrieve data in your browser. This storage is often necessary for the basic functionality of the website. The storage may be used for marketing, analytics, and personalization of the site, such as storing your preferences. Privacy is important to us, so you have the option of disabling certain types of storage that may not be necessary for the basic functioning of the website. Blocking categories may impact your experience on the website."
+    },
+    "information": {
+      "title": "Information You Provide to Us Directly",
+      "content": "This is information you voluntarily give us, such as: Account Information: Your name, email address, username, password, and contact preferences when you create an account."
+    }
+  }
+}
