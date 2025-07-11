@@ -8,6 +8,7 @@ import { cn } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Navbar() {
@@ -16,6 +17,7 @@ export default function Navbar() {
   const t = useTranslations('navigation');
   const commonT = useTranslations('common');
   const locale = useLocale();
+  const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
 
@@ -62,17 +64,32 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <ul className='hidden lg:flex items-center justify-between gap-8 text-gray-700'>
-            {navbarLinks.map((link) => (
-              <li key={link.id} className='group relative'>
-                <Link
-                  href={`/${locale}${link.href}`}
-                  className='font-semibold text-lg text-gray-700 hover:text-[#3E1492] transition-all duration-300 relative py-2'
-                >
-                  {t(link.name as keyof typeof t)}
-                  <span className='absolute bottom-0 left-0 w-full h-0.5 bg-[#3E1492] transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100' />
-                </Link>
-              </li>
-            ))}
+            {navbarLinks.map((link) => {
+              const isActive =
+                pathname === `/${locale}${link.href}` ||
+                (link.href === '/' && pathname === `/${locale}`);
+              return (
+                <li key={link.id} className='group relative'>
+                  <Link
+                    href={`/${locale}${link.href}`}
+                    className={cn(
+                      'font-semibold text-lg transition-all duration-300 relative py-2 px-3 rounded-xl',
+                      isActive
+                        ? 'text-white bg-gradient-to-r from-[#3E1492] to-[#6B46C1] shadow-lg font-extrabold scale-105'
+                        : 'text-gray-700 hover:text-[#3E1492]'
+                    )}
+                  >
+                    <span className='relative z-10'>
+                      {t(link.name as keyof typeof t)}
+                    </span>
+                    {/* Creative Gradient Underline for Active */}
+                    {isActive && (
+                      <span className='absolute left-1/2 -translate-x-1/2 bottom-0 w-3/4 h-1 rounded-full   shadow-md animate-pulse'></span>
+                    )}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Desktop CTA Button and Language Switcher */}
@@ -140,29 +157,41 @@ export default function Navbar() {
           <div className='mobile-menu-content px-6'>
             {/* Menu Items */}
             <nav className='mobile-menu-nav text-center space-y-3'>
-              {navbarLinks.map((link, index) => (
-                <div
-                  key={link.id}
-                  className={cn(
-                    'transform transition-all duration-700 ease-out mobile-menu-item z-90',
-                    menuOpen
-                      ? 'translate-y-0 opacity-100'
-                      : 'translate-y-8 opacity-0'
-                  )}
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <Link
-                    href={`/${locale}${link.href}`}
-                    onClick={() => setMenuOpen(false)}
-                    className='block text-white mobile-menu-text font-bold hover:text-yellow-300 transition-all duration-300 transform group py-1'
+              {navbarLinks.map((link, index) => {
+                const isActive =
+                  pathname === `/${locale}${link.href}` ||
+                  (link.href === '/' && pathname === `/${locale}`);
+                return (
+                  <div
+                    key={link.id}
+                    className={cn(
+                      'transform transition-all duration-700 ease-out mobile-menu-item z-90',
+                      menuOpen
+                        ? 'translate-y-0 opacity-100'
+                        : 'translate-y-8 opacity-0'
+                    )}
+                    style={{ transitionDelay: `${index * 100}ms` }}
                   >
-                    <span className='relative'>
-                      {t(link.name as keyof typeof t)}
-                      <span className='absolute bottom-0 left-0 w-full h-1 bg-yellow-300 transform scale-x-0 origin-left transition-transform duration-300 group-hover:scale-x-100'></span>
-                    </span>
-                  </Link>
-                </div>
-              ))}
+                    <Link
+                      href={`/${locale}${link.href}`}
+                      onClick={() => setMenuOpen(false)}
+                      className={cn(
+                        'block mobile-menu-text font-bold transition-all duration-300 transform group py-1 px-3 rounded-xl',
+                        isActive
+                          ? 'text-white bg-gradient-to-r from-[#3E1492] to-[#6B46C1] shadow-lg font-extrabold scale-105'
+                          : 'text-white hover:text-yellow-300'
+                      )}
+                    >
+                      <span className='relative z-10'>
+                        {t(link.name as keyof typeof t)}
+                      </span>
+                      {isActive && (
+                        <span className='absolute left-1/2 -translate-x-1/2 bottom-0 w-3/4 h-1 rounded-full bg-gradient-to-r from-[#feda02] to-[#3E1492] shadow-md animate-pulse'></span>
+                      )}
+                    </Link>
+                  </div>
+                );
+              })}
 
               {/* Language Switcher for Mobile */}
               <div

@@ -43,7 +43,7 @@ export default function Hero() {
               <Button
                 variant='primary'
                 size='lg'
-                className='bg-white text-[#3E1492] hover:bg-gray-100 font-semibold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform  hover-lift'
+                className='bg-[#3E1492] hover:text-[#feda02] font-semibold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform  hover-lift'
               >
                 {t('downloadApp')}
               </Button>
@@ -60,30 +60,28 @@ export default function Hero() {
 
         {/* Image Section */}
         <div className='lg:w-1/2 flex justify-center lg:justify-end hero-image-animate'>
-          <div className='relative'>
+          <div className='relative w-[280px] h-[560px]'>
             {/* Main App Mockup */}
-            <div className='relative z-20 transform rotate-3 hover:rotate-0 transition-transform duration-500 hover-lift'>
+            <div className='relative z-10'>
               <Image
                 src={login}
                 alt='Login Mockup'
                 width={280}
                 height={560}
-                className='rounded-3xl shadow-2xl w-full max-w-[280px] h-auto image-fade-in'
+                className='rounded-3xl shadow-2xl w-full h-auto image-fade-in'
                 priority
               />
             </div>
-
-            {/* Side Menu Mockup */}
-            <div className='absolute -top-4 -right-4 z-10 transform -rotate-6 hover:rotate-0 transition-transform duration-500 hover-lift'>
+            {/* Side Menu Mockup - overlayed on login */}
+            <div className='absolute top-1/2 left-1/2 z-20 -translate-x-1/2 -translate-y-1/2'>
               <Image
                 src={Side_menu}
                 alt='Side Menu Mockup'
                 width={240}
                 height={480}
-                className='rounded-3xl shadow-2xl w-full max-w-[240px] h-auto image-fade-in'
+                className='rounded-3xl shadow-2xl w-[240px] h-auto image-fade-in'
               />
             </div>
-
             {/* Floating Elements */}
             <div className='absolute -top-8 -left-8 w-16 h-16 bg-white/10 rounded-full animate-pulse'></div>
             <div className='absolute -bottom-8 -right-8 w-12 h-12 bg-white/5 rounded-full animate-bounce'></div>
