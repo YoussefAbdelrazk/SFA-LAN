@@ -21,7 +21,7 @@ export default function Banner() {
           className='w-full h-auto object-cover'
         />
         <div
-          className={`absolute top-0 left-0 w-full h-full flex flex-col justify-center ${
+          className={`absolute  top-0 left-0 w-full h-full flex flex-col justify-center ${
             isRTL ? 'items-end' : 'items-start'
           } px-4 sm:px-6 md:px-12 lg:px-16 xl:px-24 py-4 sm:py-6 md:py-8 lg:py-10 xl:py-12`}
         >
