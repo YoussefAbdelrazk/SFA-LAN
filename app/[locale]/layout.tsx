@@ -9,6 +9,7 @@ import PerformanceMonitor from '@/components/PerformanceMonitor';
 import StructuredData from '@/components/StructuredData';
 import LayoutLoader from '@/components/ui/LayoutLoader';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+
 import '../globals.css';
 
 const geistSans = Geist({
@@ -119,6 +120,11 @@ export const metadata: Metadata = {
     'application-name': 'Sherife Franca',
     'msapplication-TileColor': '#3E1492',
     'theme-color': '#3E1492',
+  },
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
   },
 };
 
