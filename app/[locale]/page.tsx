@@ -1,5 +1,7 @@
 import {
+  Banner,
   Hero,
+  Mock,
   Platform,
   Pricing,
   Services,
@@ -22,6 +24,8 @@ export default async function Home({
       <Stories />
       <Pricing />
       <Transformation />
+      <Mock />
+      <Banner />
     </div>
   );
 }

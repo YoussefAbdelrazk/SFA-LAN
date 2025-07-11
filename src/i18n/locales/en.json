@@ -277,5 +277,14 @@
       "title": "Information You Provide to Us Directly",
       "content": "This is information you voluntarily give us, such as: Account Information: Your name, email address, username, password, and contact preferences when you create an account."
     }
+  },
+  "mock": {
+    "headline": "Your Training Any Device",
+    "cta": "Take the First Step Towards a Healthier You"
+  },
+  "banner": {
+    "headline": "Ready to get started?",
+    "download": "Download App Now!",
+    "desc": "Get access to premium fitness content, personalized workouts, and expert guidance"
   }
 }

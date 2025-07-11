@@ -277,5 +277,14 @@
       "title": "Informations que vous nous fournissez directement",
       "content": "Ce sont des informations que vous nous donnez volontairement, telles que : Informations du compte : Votre nom, adresse e-mail, nom d'utilisateur, mot de passe et préférences de contact lorsque vous créez un compte."
     }
+  },
+  "mock": {
+    "headline": "Votre entraînement sur n'importe quel appareil",
+    "cta": "Faites le premier pas vers une meilleure santé"
+  },
+  "banner": {
+    "headline": "Prêt à commencer ?",
+    "download": "Téléchargez l'application maintenant !",
+    "desc": "Accédez à du contenu fitness premium, des entraînements personnalisés et des conseils d'experts"
   }
 }
