@@ -76,7 +76,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
 
   return (
     <div className={cn('w-full section-fade-in', className)}>
-      <div className='grid grid-cols-1 md:grid-cols-3 gap-6'>
+      <div className='grid grid-cols-1 md:grid-cols-3 gap-6 py-4'>
         {/* Email Card */}
         <ContactCard
           icon={
