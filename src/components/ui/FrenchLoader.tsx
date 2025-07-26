@@ -3,7 +3,7 @@
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-const ArabicLoader = () => {
+const FrenchLoader = () => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -21,15 +21,12 @@ const ArabicLoader = () => {
   }, []);
 
   return (
-    <div
-      className='fixed inset-0 bg-gradient-to-br from-[#1a1442] via-[#3E1492] to-[#6B46C1] z-[9999] flex items-center justify-center overflow-hidden'
-      style={{ direction: 'rtl' }}
-    >
+    <div className='fixed inset-0 bg-gradient-to-br from-[#1a1442] via-[#3E1492] to-[#6B46C1] z-[9999] flex items-center justify-center overflow-hidden'>
       {/* Animated Background Elements */}
       <div className='absolute inset-0'>
         {/* Floating Circles */}
         <motion.div
-          className='absolute top-20 right-20 w-32 h-32 bg-white/10 rounded-full'
+          className='absolute top-20 left-20 w-32 h-32 bg-white/10 rounded-full'
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.6, 0.3],
@@ -41,7 +38,7 @@ const ArabicLoader = () => {
           }}
         />
         <motion.div
-          className='absolute top-40 left-32 w-24 h-24 bg-[#feda02]/20 rounded-full'
+          className='absolute top-40 right-32 w-24 h-24 bg-[#feda02]/20 rounded-full'
           animate={{
             scale: [1, 1.5, 1],
             opacity: [0.2, 0.5, 0.2],
@@ -54,7 +51,7 @@ const ArabicLoader = () => {
           }}
         />
         <motion.div
-          className='absolute bottom-32 right-32 w-20 h-20 bg-white/5 rounded-full'
+          className='absolute bottom-32 left-32 w-20 h-20 bg-white/5 rounded-full'
           animate={{
             scale: [1, 1.3, 1],
             opacity: [0.1, 0.4, 0.1],
@@ -67,7 +64,7 @@ const ArabicLoader = () => {
           }}
         />
         <motion.div
-          className='absolute bottom-20 left-20 w-16 h-16 bg-[#feda02]/15 rounded-full'
+          className='absolute bottom-20 right-20 w-16 h-16 bg-[#feda02]/15 rounded-full'
           animate={{
             scale: [1, 1.4, 1],
             opacity: [0.2, 0.6, 0.2],
@@ -97,11 +94,11 @@ const ArabicLoader = () => {
             {/* Main Text */}
             <h1 className='relative text-6xl md:text-8xl font-black text-white mb-4 tracking-wider'>
               <span className='bg-gradient-to-r from-white via-[#feda02] to-white bg-clip-text text-transparent'>
-                شريف
+                SHERIF
               </span>
             </h1>
             <h2 className='relative text-4xl md:text-6xl font-bold text-[#feda02] tracking-wider'>
-              فرنسا
+              FRANCA
             </h2>
           </div>
         </motion.div>
@@ -113,7 +110,7 @@ const ArabicLoader = () => {
           transition={{ duration: 0.8, delay: 0.3 }}
           className='text-white/80 text-lg md:text-xl mb-12 font-light'
         >
-          حول رحلتك الرياضية
+          Transformez Votre Parcours Fitness
         </motion.p>
 
         {/* Progress Bar */}
@@ -146,7 +143,7 @@ const ArabicLoader = () => {
             transition={{ duration: 0.6, delay: 0.7 }}
             className='text-white/60 text-sm mt-2 font-medium'
           >
-            جاري التحميل... {progress}%
+            Chargement... {progress}%
           </motion.p>
         </motion.div>
 
@@ -192,4 +189,4 @@ const ArabicLoader = () => {
   );
 };
 
-export default ArabicLoader;
+export default FrenchLoader;

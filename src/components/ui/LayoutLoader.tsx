@@ -3,7 +3,6 @@
 import { useLocale } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import ClientOnly from './ClientOnly';
 
 // Dynamically import the Loader components with no SSR
 const Loader = dynamic(() => import('./Loader'), {
@@ -12,6 +11,11 @@ const Loader = dynamic(() => import('./Loader'), {
 });
 
 const ArabicLoader = dynamic(() => import('./ArabicLoader'), {
+  ssr: false,
+  loading: () => null,
+});
+
+const FrenchLoader = dynamic(() => import('./FrenchLoader'), {
   ssr: false,
   loading: () => null,
 });
@@ -25,9 +29,9 @@ const LayoutLoader = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const LoaderComponent = locale === 'ar' ? ArabicLoader : Loader;
+  const LoaderComponent = locale === 'ar' ? ArabicLoader : locale === 'fr' ? FrenchLoader : Loader;
 
-  return <ClientOnly>{loading ? <LoaderComponent /> : null}</ClientOnly>;
+  return loading ? <LoaderComponent /> : null;
 };
 
 export default LayoutLoader;
