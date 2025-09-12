@@ -2,9 +2,14 @@
 
 import { Button } from '@/components/ui';
 import { FormField, Input, Textarea } from '@/components/ui/form-field';
-import { useContactForm } from '@/hooks/useContactForm';
+import { useContactUs } from '@/hooks/useContactUs';
 import { cn } from '@/lib/utils';
+import { ContactFormData, createContactFormSchema } from '@/lib/validations/contact';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { useLocale, useTranslations } from 'next-intl';
+import { useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { toast } from 'sonner';
 
 interface ContactFormProps {
   className?: string;
@@ -13,26 +18,87 @@ interface ContactFormProps {
 export default function ContactForm({ className }: ContactFormProps) {
   const t = useTranslations('contact');
   const commonT = useTranslations('common');
+  const validationT = useTranslations('validation');
   const locale = useLocale();
+  const contactMutation = useContactUs({ locale });
 
-  const {
-    isSubmitting,
-    submissionResult,
-    onSubmit,
-    clearSubmissionResult,
-    register,
-    formState: { errors, touchedFields },
-    watch,
-  } = useContactForm();
+  // Create locale-specific validation schema with translation function
+  const localizedSchema = createContactFormSchema(locale, (key: string) => {
+    try {
+      const translation = validationT(key);
+      if (!translation || translation === key) {
+        console.warn(`Missing translation for key: ${key}`);
+      }
+      return translation;
+    } catch (error) {
+      console.error(`Error resolving translation for key: ${key}`, error);
+      return key; // Fallback to key if translation not found
+    }
+  });
+
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(localizedSchema),
+    defaultValues: {
+      fullName: '',
+      email: '',
+      message: '',
+    },
+    mode: 'onChange', // Validate on change for better UX
+  });
+
+  // Handle mutation state changes
+  useEffect(() => {
+    if (contactMutation.isSuccess && contactMutation.data) {
+      if (contactMutation.data.isSuccess) {
+        form.reset(); // Reset form on successful submission
+        toast.success(contactMutation.data.message, {
+          description:
+            locale === 'ar' ? 'تم إرسال رسالتك بنجاح' : 'Your message has been sent successfully',
+          duration: 5000,
+        });
+      } else {
+        toast.error(contactMutation.data.message, {
+          description:
+            locale === 'ar'
+              ? 'حدث خطأ أثناء إرسال الرسالة'
+              : 'An error occurred while sending your message',
+          duration: 5000,
+        });
+      }
+    }
+  }, [contactMutation.isSuccess, contactMutation.data, form, locale]);
+
+  useEffect(() => {
+    if (contactMutation.isError) {
+      const errorMessage =
+        locale === 'ar'
+          ? 'حدث خطأ غير متوقع. يرجى المحاولة مرة أخرى.'
+          : 'An unexpected error occurred. Please try again.';
+
+      toast.error(errorMessage, {
+        description: locale === 'ar' ? 'يرجى المحاولة مرة أخرى' : 'Please try again later',
+        duration: 5000,
+      });
+    }
+  }, [contactMutation.isError, contactMutation.error, locale]);
+
+  const onSubmit = (data: ContactFormData) => {
+    console.log('data', data);
+    contactMutation.mutate({
+      fullName: data.fullName,
+      email: data.email,
+      message: data.message,
+    });
+  };
 
   // Watch field values for validation
-  const watchedValues = watch();
+  const watchedValues = form.watch();
 
   // Helper function to check if field is valid
   const isFieldValid = (fieldName: keyof typeof watchedValues) => {
     return (
-      touchedFields[fieldName] &&
-      !errors[fieldName] &&
+      form.formState.touchedFields[fieldName] &&
+      !form.formState.errors[fieldName] &&
       watchedValues[fieldName]?.length > 0
     );
   };
@@ -48,72 +114,20 @@ export default function ContactForm({ className }: ContactFormProps) {
         </p>
       </div>
 
-      {/* Success/Error Message */}
-      {submissionResult && (
-        <div
-          className={cn(
-            'mb-6 p-4 rounded-lg flex items-center gap-3',
-            submissionResult.success
-              ? 'bg-green-50 text-green-800 border border-green-200'
-              : 'bg-red-50 text-red-800 border border-red-200'
-          )}
-        >
-          {submissionResult.success ? (
-            <svg
-              className='w-5 h-5 text-green-600'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-            >
-              <path
-                fillRule='evenodd'
-                d='M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z'
-                clipRule='evenodd'
-              />
-            </svg>
-          ) : (
-            <svg
-              className='w-5 h-5 text-red-600'
-              fill='currentColor'
-              viewBox='0 0 20 20'
-            >
-              <path
-                fillRule='evenodd'
-                d='M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z'
-                clipRule='evenodd'
-              />
-            </svg>
-          )}
-          <span>{submissionResult.message}</span>
-          <button
-            type='button'
-            onClick={clearSubmissionResult}
-            className='ml-auto text-gray-400 hover:text-gray-600'
-          >
-            <svg className='w-4 h-4' fill='currentColor' viewBox='0 0 20 20'>
-              <path
-                fillRule='evenodd'
-                d='M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z'
-                clipRule='evenodd'
-              />
-            </svg>
-          </button>
-        </div>
-      )}
-
-      <form onSubmit={onSubmit} className='space-y-6 section-fade-in'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6 section-fade-in'>
         {/* Name Field */}
-        <FormField label={commonT('name')} error={errors.name?.message}>
+        <FormField label={commonT('fullName')} error={form.formState.errors.fullName?.message}>
           <Input
-            {...register('name')}
+            {...form.register('fullName')}
             type='text'
-            placeholder={t('form.namePlaceholder')}
-            error={!!errors.name}
-            isValid={isFieldValid('name')}
+            placeholder={t('form.fullNamePlaceholder')}
+            error={!!form.formState.errors.fullName}
+            isValid={isFieldValid('fullName')}
             icon={
               <div
                 className={cn(
                   'flex items-center justify-center w-5 h-5',
-                  locale === 'ar' ? 'ml-2' : 'mr-1'
+                  locale === 'ar' ? 'ml-2' : 'mr-1',
                 )}
               >
                 <svg
@@ -137,18 +151,18 @@ export default function ContactForm({ className }: ContactFormProps) {
         </FormField>
 
         {/* Email Field */}
-        <FormField label={commonT('email')} error={errors.email?.message}>
+        <FormField label={commonT('email')} error={form.formState.errors.email?.message}>
           <Input
-            {...register('email')}
+            {...form.register('email')}
             type='email'
             placeholder={t('form.emailPlaceholder')}
-            error={!!errors.email}
+            error={!!form.formState.errors.email}
             isValid={isFieldValid('email')}
             icon={
               <div
                 className={cn(
                   'flex items-center justify-center w-5 h-5',
-                  locale === 'ar' ? 'ml-1' : 'mr-1'
+                  locale === 'ar' ? 'ml-1' : 'mr-1',
                 )}
               >
                 <svg
@@ -172,12 +186,12 @@ export default function ContactForm({ className }: ContactFormProps) {
         </FormField>
 
         {/* Message Field */}
-        <FormField label={commonT('message')} error={errors.message?.message}>
+        <FormField label={commonT('message')} error={form.formState.errors.message?.message}>
           <Textarea
-            {...register('message')}
+            {...form.register('message')}
             placeholder={t('form.messagePlaceholder')}
             rows={5}
-            error={!!errors.message}
+            error={!!form.formState.errors.message}
             isValid={isFieldValid('message')}
             className={locale === 'ar' ? 'text-left' : ''}
             dir={locale === 'ar' ? 'rtl' : 'ltr'}
@@ -190,9 +204,9 @@ export default function ContactForm({ className }: ContactFormProps) {
           variant='primary'
           size='lg'
           className='w-full'
-          disabled={isSubmitting}
+          disabled={contactMutation.isPending}
         >
-          {isSubmitting ? commonT('submitting') : t('form.submitNow')}
+          {contactMutation.isPending ? commonT('submitting') : t('form.submitNow')}
         </Button>
       </form>
     </div>

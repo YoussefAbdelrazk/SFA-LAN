@@ -10,7 +10,7 @@
     "contactUs": "Contact Us",
     "submit": "Submit",
     "submitting": "Submitting...",
-    "name": "Name",
+    "fullName": "Name",
     "email": "Email",
     "message": "Message",
     "phone": "Phone",
@@ -30,11 +30,11 @@
     "languageSettingsSaved": "Language settings saved automatically"
   },
   "validation": {
-    "name": {
-      "required": "Name is required",
-      "minLength": "Name must be at least 2 characters",
-      "maxLength": "Name must be less than 50 characters",
-      "invalidFormat": "Name can only contain letters and spaces"
+      "fullName": {
+        "required": "Full Name is required",
+        "minLength": "Full Name must be at least 2 characters",
+        "maxLength": "Full Name must be less than 50 characters",
+        "invalidFormat": "Full Name can only contain letters and spaces"
     },
     "email": {
       "required": "Email is required",
@@ -207,7 +207,7 @@
     "title": "Get in Touch With Sherife Franca Platform",
     "subtitle": "We're Here to Help You on Your Fitness Journey. Reach Out to Us with Any Questions or to Schedule a Visit!",
     "form": {
-      "namePlaceholder": "Enter your full name",
+      "fullNamePlaceholder": "Enter your full name",
       "emailPlaceholder": "Enter your email address",
       "messagePlaceholder": "Tell us about your fitness goals and how we can help you...",
       "submitNow": "Submit Now",

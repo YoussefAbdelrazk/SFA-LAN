@@ -2,6 +2,9 @@
 // TYPE DEFINITIONS
 // ============================================================================
 
+// Contact Us Types
+export type { ContactUsError } from './contact';
+
 export interface NavbarLink {
   id: number;
   name: string;
@@ -102,4 +105,3 @@ export interface SiteConfig {
 // ============================================================================
 // According
 // ============================================================================
-

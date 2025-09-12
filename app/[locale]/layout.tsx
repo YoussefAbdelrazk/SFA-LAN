@@ -8,9 +8,11 @@ import { Footer, Navbar } from '@/components/layout';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import StructuredData from '@/components/StructuredData';
 import LayoutLoader from '@/components/ui/LayoutLoader';
+import { Toaster } from '@/components/ui/sonner-toaster';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
 import '../globals.css';
+import Providers from './providers';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -34,8 +36,7 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   metadataBase: new URL('https://sherife-franca.com'),
   title: {
-    default:
-      'Sherife Franca - Premium Fitness Platform | Get Fit. Pay Less. Stay Strong.',
+    default: 'Sherife Franca - Premium Fitness Platform | Get Fit. Pay Less. Stay Strong.',
     template: '%s | Sherife Franca',
   },
   description:
@@ -148,11 +149,7 @@ export default async function LocaleLayout({
   const messages = await getMessages({ locale });
 
   return (
-    <html
-      lang={locale}
-      className='overflow-x-hidden'
-      dir={locale === 'ar' ? 'rtl' : 'ltr'}
-    >
+    <html lang={locale} className='overflow-x-hidden' dir={locale === 'ar' ? 'rtl' : 'ltr'}>
       <head>
         <StructuredData type='organization' locale={locale} />
         <StructuredData type='website' locale={locale} />
@@ -162,14 +159,17 @@ export default async function LocaleLayout({
         className={`${geistSans.variable} ${geistMono.variable} ${roboto.variable} antialiased overflow-x-hidden`}
       >
         <NextIntlClientProvider messages={messages} locale={locale}>
-          <PerformanceMonitor />
-          <LayoutLoader />
-          <Navbar />
-          <main className='flex flex-col items-center justify-center md:block overflow-x-hidden'>
-            {children}
-          </main>
-          <Footer />
-          <WhatsAppButton />
+          <Providers>
+            <PerformanceMonitor />
+            <LayoutLoader />
+            <Navbar />
+            <main className='flex flex-col items-center justify-center md:block overflow-x-hidden'>
+              {children}
+            </main>
+            <Footer />
+            <WhatsAppButton />
+            <Toaster />
+          </Providers>
         </NextIntlClientProvider>
       </body>
     </html>

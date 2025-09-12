@@ -69,17 +69,17 @@ export default function Navbar() {
                 pathname === `/${locale}${link.href}` ||
                 (link.href === '/' && pathname === `/${locale}`);
               return (
-                <li key={link.id} className='group relative'>
+                <li key={link.id} className='group relative '>
                   <Link
                     href={`/${locale}${link.href}`}
                     className={cn(
-                      'font-semibold text-lg transition-all duration-300 relative py-2 px-3 rounded-xl',
+                      'font-semibold text-lg transition-all duration-300 relative py-2 px-3 rounded-xl cursor-pointer',
                       isActive
                         ? 'text-white bg-gradient-to-r from-[#3E1492] to-[#6B46C1] shadow-lg font-extrabold scale-105'
-                        : 'text-gray-700 hover:text-[#3E1492]'
+                        : 'text-gray-700 hover:text-[#3E1492]',
                     )}
                   >
-                    <span className='relative z-10'>
+                    <span className='relative z-10 cursor-pointer'>
                       {t(link.name as keyof typeof t)}
                     </span>
                     {/* Creative Gradient Underline for Active */}

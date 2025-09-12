@@ -10,7 +10,7 @@
     "contactUs": "Contactez-nous",
     "submit": "Soumettre",
     "submitting": "Soumission...",
-    "name": "Nom",
+    "fullName": "Nom",
     "email": "Email",
     "message": "Message",
     "phone": "Téléphone",
@@ -30,7 +30,7 @@
     "languageSettingsSaved": "Les paramètres de langue sont sauvegardés automatiquement"
   },
   "validation": {
-    "name": {
+    "fullName": {
       "required": "Le nom est requis",
       "minLength": "Le nom doit contenir au moins 2 caractères",
       "maxLength": "Le nom doit contenir moins de 50 caractères",
@@ -207,7 +207,7 @@
     "title": "Contactez la plateforme Sherife Franca",
     "subtitle": "Nous sommes là pour vous aider dans votre parcours fitness. Contactez-nous pour toute question ou pour planifier une visite !",
     "form": {
-      "namePlaceholder": "Entrez votre nom complet",
+      "fullNamePlaceholder": "Entrez votre nom complet",
       "emailPlaceholder": "Entrez votre adresse email",
       "messagePlaceholder": "Parlez-nous de vos objectifs fitness et comment nous pouvons vous aider...",
       "submitNow": "Soumettre maintenant",

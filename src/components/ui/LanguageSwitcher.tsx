@@ -19,11 +19,12 @@ export default function LanguageSwitcher() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isChanging, setIsChanging] = useState(false);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const t = useTranslations('common');
 
-  const currentLanguage = languages.find((lang) => lang.code === locale);
+  const currentLanguage = languages.find(lang => lang.code === locale);
 
   useEffect(() => {
     setMounted(true);
@@ -45,23 +46,26 @@ export default function LanguageSwitcher() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  const handleLanguageChange = (newLocale: string) => {
+  const handleLanguageChange = async (newLocale: string) => {
+    if (isChanging || newLocale === locale) return;
+
+    setIsChanging(true);
     setIsOpen(false);
-    let newPath = pathname;
-    // Remove any leading double slashes
-    if (newPath.startsWith('//')) newPath = newPath.replace(/^\/\//, '/');
-    // If the path does not start with a locale, add it
-    const localePattern = /^\/(en|ar|fr)(\/|$)/;
-    if (localePattern.test(newPath)) {
-      newPath = newPath.replace(localePattern, `/${newLocale}/`);
-      // Remove trailing slash if present (except for root)
-      if (newPath.length > 1 && newPath.endsWith('/'))
-        newPath = newPath.slice(0, -1);
-    } else {
-      // If no locale in path, add it
-      newPath = `/${newLocale}${newPath.startsWith('/') ? '' : '/'}${newPath}`;
+
+    try {
+      // Get the current pathname without the locale prefix
+      const pathWithoutLocale = pathname.replace(/^\/(en|ar|fr)/, '') || '/';
+
+      // Create the new path with the selected locale
+      const newPath = `/${newLocale}${pathWithoutLocale === '/' ? '' : pathWithoutLocale}`;
+
+      // Use router.replace for smoother navigation without adding to history
+      await router.replace(newPath, { scroll: false });
+    } catch (error) {
+      console.error('Language change error:', error);
+    } finally {
+      setIsChanging(false);
     }
-    router.push(newPath);
   };
 
   const getDropdownPosition = () => {
@@ -102,8 +106,10 @@ export default function LanguageSwitcher() {
           'hover:from-[#3E1492]/20 hover:to-[#6B46C1]/20 hover:border-[#3E1492]/30 hover:scale-105',
           'text-[#3E1492] font-medium shadow-lg hover:shadow-xl',
           'focus:outline-none focus:ring-2 focus:ring-[#3E1492]/50 focus:ring-offset-2 focus:ring-offset-transparent',
-          'group relative overflow-hidden'
+          'group relative overflow-hidden',
+          isChanging && 'opacity-70 cursor-not-allowed',
         )}
+        disabled={isChanging}
         aria-label='Select language'
       >
         {/* Animated background */}
@@ -111,8 +117,14 @@ export default function LanguageSwitcher() {
 
         <div className='flex items-center gap-2 relative z-10'>
           <div className='relative'>
-            <Globe className='w-4 h-4 group-hover:rotate-12 transition-transform duration-300' />
-            <div className='absolute -top-1 -right-1 w-2 h-2 bg-[#3E1492] rounded-full animate-pulse'></div>
+            {isChanging ? (
+              <div className='w-4 h-4 border-2 border-[#3E1492] border-t-transparent rounded-full animate-spin'></div>
+            ) : (
+              <>
+                <Globe className='w-4 h-4 group-hover:rotate-12 transition-transform duration-300' />
+                <div className='absolute -top-1 -right-1 w-2 h-2 bg-[#3E1492] rounded-full animate-pulse'></div>
+              </>
+            )}
           </div>
           <span className='text-lg group-hover:scale-110 transition-transform duration-300'>
             {currentLanguage?.flag}
@@ -124,7 +136,7 @@ export default function LanguageSwitcher() {
         <ChevronDown
           className={cn(
             'w-4 h-4 transition-all duration-300 group-hover:rotate-180 relative z-10',
-            isOpen && 'rotate-180'
+            isOpen && 'rotate-180',
           )}
         />
       </button>
@@ -150,9 +162,7 @@ export default function LanguageSwitcher() {
                 </div>
                 <div>
                   <h3 className='text-sm font-bold'>{t('selectLanguage')}</h3>
-                  <p className='text-xs text-white/80 mt-0.5'>
-                    {t('chooseLanguage')}
-                  </p>
+                  <p className='text-xs text-white/80 mt-0.5'>{t('chooseLanguage')}</p>
                 </div>
               </div>
             </div>
@@ -163,12 +173,14 @@ export default function LanguageSwitcher() {
                 <button
                   key={language.code}
                   onClick={() => handleLanguageChange(language.code)}
+                  disabled={isChanging}
                   className={cn(
                     'w-full flex items-center gap-4 px-6 py-4 text-left transition-all duration-300',
                     'hover:bg-gradient-to-r hover:from-[#3E1492]/5 hover:to-[#6B46C1]/5',
                     'focus:outline-none group relative overflow-hidden',
                     locale === language.code &&
-                      'bg-gradient-to-r from-[#3E1492]/10 to-[#6B46C1]/10 border-r-4 border-[#3E1492]'
+                      'bg-gradient-to-r from-[#3E1492]/10 to-[#6B46C1]/10 border-r-4 border-[#3E1492]',
+                    isChanging && 'opacity-50 cursor-not-allowed',
                   )}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
@@ -212,14 +224,12 @@ export default function LanguageSwitcher() {
               <div className='flex items-center gap-3 text-xs text-gray-600'>
                 <div className='flex items-center gap-1'>
                   <div className='w-2 h-2 bg-green-500 rounded-full animate-pulse'></div>
-                  <span className='font-medium'>
-                    {t('languageSettingsSaved')}
-                  </span>
+                  <span className='font-medium'>{t('languageSettingsSaved')}</span>
                 </div>
               </div>
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );
