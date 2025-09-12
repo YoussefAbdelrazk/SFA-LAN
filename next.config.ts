@@ -15,6 +15,14 @@ const nextConfig = {
     minimumCacheTTL: 60,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    remotePatterns: [
+      {
+        protocol: 'https' as const,
+        hostname: 'clientapi.sherif-faranca.com',
+        port: '',
+        pathname: '/uploads/**',
+      },
+    ],
   },
   compress: true,
   poweredByHeader: false,

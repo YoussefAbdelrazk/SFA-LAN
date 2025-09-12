@@ -5,6 +5,9 @@
 // Contact Us Types
 export type { ContactUsError } from './contact';
 
+// Privacy Types
+export type { PrivacyApiError, PrivacyApiResponse, PrivacyData } from './privacy';
+
 export interface NavbarLink {
   id: number;
   name: string;
