@@ -1,6 +1,7 @@
 'use client';
 
-import { getContactInfo, getWhatsAppUrl } from '@/constants/contact';
+import { getWhatsAppUrl } from '@/constants/contact';
+import { useGetContactUs } from '@/hooks/useContactUs';
 import { cn } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 
@@ -32,7 +33,7 @@ function ContactCard({
       className={cn(
         'bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform border border-[#3E1492] card-hover group',
         isClickable && 'cursor-pointer hover:scale-105',
-        className
+        className,
       )}
       onClick={onClick}
     >
@@ -59,7 +60,7 @@ function ContactCard({
 export default function ContactInfo({ className }: ContactInfoProps) {
   const t = useTranslations('contact');
   const locale = useLocale();
-  const contactInfo = getContactInfo(locale);
+  const { data: contactInfo } = useGetContactUs({ locale });
 
   const handleWhatsAppClick = () => {
     const whatsappUrl = getWhatsAppUrl(locale);
@@ -67,11 +68,11 @@ export default function ContactInfo({ className }: ContactInfoProps) {
   };
 
   const handleEmailClick = () => {
-    window.open(`mailto:${contactInfo.email}`, '_blank');
+    window.open(`mailto:${contactInfo?.mail}`, '_blank');
   };
 
   const handlePhoneClick = () => {
-    window.open(`tel:${contactInfo.phone}`, '_blank');
+    window.open(`tel:${contactInfo?.hotline}`, '_blank');
   };
 
   return (
@@ -80,12 +81,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
         {/* Email Card */}
         <ContactCard
           icon={
-            <svg
-              className='w-8 h-8'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
+            <svg className='w-8 h-8' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -96,7 +92,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
           }
           title={t('cards.email.title')}
           description={t('cards.email.description')}
-          contact={contactInfo.email}
+          contact={contactInfo?.mail}
           onClick={handleEmailClick}
           isClickable={true}
         />
@@ -110,7 +106,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
           }
           title={t('cards.whatsapp.title')}
           description={t('cards.whatsapp.description')}
-          contact={contactInfo.phone}
+          contact={contactInfo?.hotline}
           onClick={handleWhatsAppClick}
           isClickable={true}
         />
@@ -118,12 +114,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
         {/* Phone Card */}
         <ContactCard
           icon={
-            <svg
-              className='w-8 h-8'
-              fill='none'
-              stroke='currentColor'
-              viewBox='0 0 24 24'
-            >
+            <svg className='w-8 h-8' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
               <path
                 strokeLinecap='round'
                 strokeLinejoin='round'
@@ -134,7 +125,7 @@ export default function ContactInfo({ className }: ContactInfoProps) {
           }
           title={t('cards.phone.title')}
           description={t('cards.phone.description')}
-          contact={contactInfo.phone}
+          contact={contactInfo?.hotline}
           onClick={handlePhoneClick}
           isClickable={true}
         />

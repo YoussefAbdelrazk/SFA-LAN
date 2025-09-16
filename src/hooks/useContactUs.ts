@@ -1,6 +1,6 @@
-import { sendContactUs } from '@/lib/api/contact-us/contact-us.api';
+import { getContactUs, sendContactUs } from '@/lib/api/contact-us/contact-us.api';
 import { ContactFormData } from '@/lib/validations/contact';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
 interface UseContactUsOptions {
   locale?: string;
@@ -15,5 +15,12 @@ export const useContactUs = (options?: UseContactUsOptions) => {
     onError: error => {
       console.error('Failed to send contact message:', error);
     },
+  });
+};
+
+export const useGetContactUs = (options?: UseContactUsOptions) => {
+  return useQuery({
+    queryKey: ['contactUs'],
+    queryFn: () => getContactUs(options?.locale),
   });
 };

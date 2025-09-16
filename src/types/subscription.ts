@@ -6,7 +6,9 @@ export interface SubscriptionPlan {
   id: string;
   planName: string;
   features: string[];
-  priceEGP: number;
+  beforePrice: number;
+  afterPrice: number;
+  isSpecialOffer: boolean;
 }
 
 export interface PaginationInfo {

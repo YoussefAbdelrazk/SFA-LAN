@@ -145,7 +145,9 @@ export default function SubscriptionPlans({ className }: SubscriptionPlansProps)
       {!isLoading && !error && (
         <div className='max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6 place-items-center'>
           {plans.map((plan, index) => {
-            const isPopular = index === 1; // Make middle plan popular
+            const isPopular = plan.isSpecialOffer || index === 1; // Make special offer or middle plan popular
+            const hasDiscount = plan.beforePrice > plan.afterPrice;
+
             return (
               <Card
                 key={plan.id}
@@ -166,13 +168,33 @@ export default function SubscriptionPlans({ className }: SubscriptionPlansProps)
                     {plan.planName}
                   </CardTitle>
                   <div className='space-y-2'>
+                    {hasDiscount && (
+                      <div className='flex items-center justify-center gap-2'>
+                        <span
+                          className={cn(
+                            'text-lg line-through',
+                            isPopular ? 'text-gray-300' : 'text-gray-400',
+                          )}
+                        >
+                          {plan.beforePrice.toLocaleString()} EGP
+                        </span>
+                        <span
+                          className={cn(
+                            'px-2 py-1 rounded-full text-xs font-semibold',
+                            isPopular ? 'bg-white/20 text-white' : 'bg-red-100 text-red-600',
+                          )}
+                        >
+                          Special Offer
+                        </span>
+                      </div>
+                    )}
                     <div
                       className={cn(
                         'text-5xl font-bold',
                         isPopular ? 'text-white' : 'text-[#3E1492]',
                       )}
                     >
-                      {plan.priceEGP.toLocaleString()} EGP
+                      {plan.afterPrice.toLocaleString()} EGP
                     </div>
                     <CardDescription
                       className={cn('text-sm', isPopular ? 'text-gray-200' : 'text-gray-500')}
