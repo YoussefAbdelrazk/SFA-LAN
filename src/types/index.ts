@@ -10,8 +10,19 @@ export type { PrivacyApiError, PrivacyApiResponse, PrivacyData } from './privacy
 
 // Subscription Types
 export type {
-  PaginationInfo, SubscriptionApiError, SubscriptionApiResponse, SubscriptionData, SubscriptionParams, SubscriptionPlan, SubscriptionType
+  PaginationInfo,
+  SubscriptionApiError,
+  SubscriptionApiResponse,
+  SubscriptionData,
+  SubscriptionParams,
+  SubscriptionPlan,
+  SubscriptionType,
 } from './subscription';
+
+// FAQ Types
+export type {
+    FAQApiError, FAQApiResponse, FAQItem
+} from './faq';
 
 export interface NavbarLink {
   id: number;
