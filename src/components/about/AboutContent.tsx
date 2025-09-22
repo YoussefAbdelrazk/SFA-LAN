@@ -48,8 +48,7 @@ export default function AboutContent() {
                 src={aboutUsImage}
                 alt='About Sherife Franca'
                 fill
-                className='object-cover object-center'
-                sizes='(max-width: 768px) 100vw, 50vw'
+                className='object-cover object-center w-[530px] h-[640px]'
               />
             </div>
           </div>

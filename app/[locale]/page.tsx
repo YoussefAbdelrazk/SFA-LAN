@@ -9,12 +9,14 @@ import {
 } from '@/components/sections';
 import { SubscriptionPlans } from '@/components/subscription';
 
+
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
   await params; // Ensure params are resolved
 
   return (
     <div>
       <Hero />
+      {/* <HeroTest /> */}
       <Platform />
       <Services />
       <Stories />

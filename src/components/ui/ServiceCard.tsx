@@ -20,18 +20,16 @@ const ServiceCard = React.forwardRef<HTMLDivElement, ServiceCardProps>(
       <div
         ref={ref}
         className={cn(
-          'bg-white rounded-xl shadow-xl p-6 flex flex-col items-center text-center w-full h-full min-h-[420px] max-w-[364px] transition-all duration-300 hover:shadow-2xl text-[#344054]',
-          className
+          'bg-white rounded-xl shadow-xl px-3 py-2 flex flex-col items-center text-center w-full h-full min-h-[420px] max-w-[364px] transition-all duration-300 hover:shadow-2xl text-[#344054]',
+          className,
         )}
         {...props}
       >
-        <div className='relative w-full h-48 mb-4 overflow-hidden rounded-lg'>
+        <div className='relative w-full  mb-4 overflow-hidden rounded-lg'>
           <Image
             src={image}
             alt={title}
-            fill
-            className='object-cover transition-transform duration-300 hover:scale-105'
-            sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
+            className='object-cover transition-transform duration-300 hover:scale-105 w-[330px] h-[250px]'
           />
         </div>
         <h3 className='font-bold text-xl mb-2 '>{title}</h3>

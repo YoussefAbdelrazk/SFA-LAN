@@ -29,21 +29,21 @@ export default function Stories() {
           alt='stories'
           width={487}
           height={532}
-          className='rounded-3xl shadow-2xl '
+          className='rounded-3xl shadow-2xl w-[480px] h-[532px] object-cover'
         />
         <Image
           src={smallpic1}
           alt='stories'
           width={216}
           height={216}
-          className='rounded-3xl shadow-2xl absolute top-[230px] -left-[30px]'
+          className='rounded-3xl shadow-2xl absolute top-[230px] -left-20 w-[216px] h-[216px] object-cover hidden md:block'
         />
         <Image
           src={smallpic2}
           alt='stories'
           width={244}
           height={300}
-          className='rounded-3xl shadow-xl absolute top-[64px] -right-[50px]'
+          className='rounded-3xl shadow-xl absolute top-12 -right-20 w-[244px] h-[166px] object-cover hidden md:block'
         />
       </div>
     </section>

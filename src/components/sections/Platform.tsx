@@ -18,7 +18,7 @@ export default function Platform() {
           alt='platform'
           width={530}
           height={500}
-          className='rounded-3xl shadow-2xl w-full max-w-xs sm:max-w-md md:max-w-full h-auto'
+          className='rounded-xl shadow-2xl w-full h-[640px] object-cover'
         />
       </div>
 
