@@ -2,11 +2,14 @@
 
 import logo from '@/assets/images/logo.png';
 import { Button } from '@/components/ui';
-import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
+import {
+  default as LanguageSwitcher,
+  default as LocaleSwitcher,
+} from '@/components/ui/LanguageSwitcher';
 import { navbarLinks } from '@/data';
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
-import { useLocale, useTranslations } from 'next-intl';
+import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
@@ -15,7 +18,6 @@ export default function Navbar() {
   const [mounted, setMounted] = useState(false);
   const t = useTranslations('navigation');
   const commonT = useTranslations('common');
-  const locale = useLocale();
   const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -46,10 +48,7 @@ export default function Navbar() {
         <nav className='flex justify-between items-center max-w-[1240px] mx-auto overflow-x-hidden px-4'>
           {/* Logo */}
           <div className='flex-shrink-0'>
-            <Link
-              href={`/${locale}`}
-              className='hover:scale-105 transition-transform duration-300'
-            >
+            <Link href='/' className='hover:scale-105 transition-transform duration-300'>
               <Image
                 src={logo}
                 alt='Sherife Franca Logo'
@@ -63,18 +62,16 @@ export default function Navbar() {
 
           {/* Desktop Menu */}
           <ul className='hidden lg:flex items-center justify-between gap-8 text-gray-700'>
-            {navbarLinks.map((link) => {
-              const isActive =
-                pathname === `/${locale}${link.href}` ||
-                (link.href === '/' && pathname === `/${locale}`);
+            {navbarLinks.map(link => {
+              const isActive = pathname === link.href;
               return (
                 <li key={link.id} className='group relative '>
                   <Link
-                    href={`/${locale}${link.href}`}
+                    href={link.href}
                     className={cn(
                       'font-semibold text-lg transition-all duration-300 relative py-2 px-3 rounded-xl cursor-pointer',
                       isActive
-                        ? 'text-white bg-gradient-to-r from-[#3E1492] to-[#6B46C1] shadow-lg font-extrabold scale-105'
+                        ? 'text-white text-[#3E1492] border-b-2 border-[#3E1492] shadow-lg font-extrabold scale-105'
                         : 'text-gray-700 hover:text-[#3E1492]',
                     )}
                   >
@@ -86,6 +83,7 @@ export default function Navbar() {
                       <span className='absolute left-1/2 -translate-x-1/2 bottom-0 w-3/4 h-1 rounded-full   shadow-md animate-pulse'></span>
                     )}
                   </Link>
+
                 </li>
               );
             })}
@@ -93,7 +91,7 @@ export default function Navbar() {
 
           {/* Desktop CTA Button and Language Switcher */}
           <div className='hidden lg:flex items-center gap-6'>
-            <LanguageSwitcher />
+            <LocaleSwitcher />
             <Button
               variant='primary'
               size='md'
@@ -114,19 +112,19 @@ export default function Navbar() {
               <span
                 className={cn(
                   'block w-5 h-0.5 bg-white transition-all duration-500 ease-in-out',
-                  menuOpen ? 'rotate-45 translate-y-1' : ''
+                  menuOpen ? 'rotate-45 translate-y-1' : '',
                 )}
               />
               <span
                 className={cn(
                   'block w-5 h-0.5 bg-white mt-1 transition-all duration-500 ease-in-out',
-                  menuOpen ? 'opacity-0 scale-0' : ''
+                  menuOpen ? 'opacity-0 scale-0' : '',
                 )}
               />
               <span
                 className={cn(
                   'block w-5 h-0.5 bg-white mt-1 transition-all duration-500 ease-in-out',
-                  menuOpen ? '-rotate-45 -translate-y-1' : ''
+                  menuOpen ? '-rotate-45 -translate-y-1' : '',
                 )}
               />
             </div>
@@ -139,7 +137,7 @@ export default function Navbar() {
         <div
           className={cn(
             'lg:hidden fixed inset-0 z-40 transition-all duration-700 ease-in-out navbar-mobile-menu',
-            menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
+            menuOpen ? 'opacity-100 visible' : 'opacity-0 invisible',
           )}
         >
           {/* Animated Background */}
@@ -157,33 +155,27 @@ export default function Navbar() {
             {/* Menu Items */}
             <nav className='mobile-menu-nav text-center space-y-3'>
               {navbarLinks.map((link, index) => {
-                const isActive =
-                  pathname === `/${locale}${link.href}` ||
-                  (link.href === '/' && pathname === `/${locale}`);
+                const isActive = pathname === link.href;
                 return (
                   <div
                     key={link.id}
                     className={cn(
                       'transform transition-all duration-700 ease-out mobile-menu-item z-90',
-                      menuOpen
-                        ? 'translate-y-0 opacity-100'
-                        : 'translate-y-8 opacity-0'
+                      menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
                     )}
                     style={{ transitionDelay: `${index * 100}ms` }}
                   >
                     <Link
-                      href={`/${locale}${link.href}`}
+                      href={link.href}
                       onClick={() => setMenuOpen(false)}
                       className={cn(
                         'block mobile-menu-text font-bold transition-all duration-300 transform group py-1 px-3 rounded-xl',
                         isActive
                           ? 'text-white bg-gradient-to-r from-[#3E1492] to-[#6B46C1] shadow-lg font-extrabold scale-105'
-                          : 'text-white hover:text-yellow-300'
+                          : 'text-white hover:text-yellow-300',
                       )}
                     >
-                      <span className='relative z-10'>
-                        {t(link.name as keyof typeof t)}
-                      </span>
+                      <span className='relative z-10'>{t(link.name as keyof typeof t)}</span>
                       {isActive && (
                         <span className='absolute left-1/2 -translate-x-1/2 bottom-0 w-3/4 h-1 rounded-full bg-gradient-to-r from-[#feda02] to-[#3E1492] shadow-md animate-pulse'></span>
                       )}
@@ -196,14 +188,12 @@ export default function Navbar() {
               <div
                 className={cn(
                   'transform transition-all duration-700 ease-out mt-4 mobile-menu-item',
-                  menuOpen
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-2 opacity-0'
+                  menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0',
                 )}
                 style={{ transitionDelay: `${navbarLinks.length * 100}ms` }}
               >
                 <div className='flex justify-center w-full '>
-                  <LanguageSwitcher mobileMenu={menuOpen} />
+                  <LanguageSwitcher />
                 </div>
               </div>
 
@@ -211,9 +201,7 @@ export default function Navbar() {
               <div
                 className={cn(
                   'transform transition-all duration-700 ease-out mt-4 mobile-menu-item',
-                  menuOpen
-                    ? 'translate-y-0 opacity-100'
-                    : 'translate-y-8 opacity-0'
+                  menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
                 )}
                 style={{
                   transitionDelay: `${(navbarLinks.length + 1) * 100}ms`,
