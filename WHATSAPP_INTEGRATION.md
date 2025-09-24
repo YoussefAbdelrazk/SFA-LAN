@@ -14,7 +14,7 @@ The Sherife Franca platform now includes WhatsApp integration for easy customer 
 
 ## Setup Instructions
 
-### 1. Update WhatsApp Number
+### 1. Update WhatsApp Numbe`r
 
 Edit `src/constants/contact.ts` and replace the WhatsApp number:
 

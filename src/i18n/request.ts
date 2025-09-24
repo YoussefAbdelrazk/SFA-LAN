@@ -1,26 +1,13 @@
+import { hasLocale } from 'next-intl';
 import { getRequestConfig } from 'next-intl/server';
+import { routing } from './routing';
 
-// Can be imported from a shared config
-export const locales = ['en', 'ar', 'fr'] as const;
-export const defaultLocale = 'en' as const;
-
-export type Locale = (typeof locales)[number];
-
-export default getRequestConfig(async ({ locale }) => {
-  // If locale is undefined, use default locale
-  const resolvedLocale = locale || defaultLocale;
-
-  // Validate that the incoming `locale` parameter is valid
-  if (!locales.includes(resolvedLocale as Locale)) {
-    throw new Error(
-      `Locale '${resolvedLocale}' is not supported. Supported locales: ${locales.join(
-        ', '
-      )}`
-    );
-  }
+export default getRequestConfig(async ({ requestLocale }) => {
+  const requested = await requestLocale;
+  const locale = hasLocale(routing.locales, requested) ? requested : routing.defaultLocale;
 
   return {
-    messages: (await import(`./locales/${resolvedLocale}.json`)).default,
-    locale: resolvedLocale as string,
+    locale,
+    messages: (await import(`./locales/${locale}.json`)).default,
   };
 });

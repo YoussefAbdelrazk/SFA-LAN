@@ -29,11 +29,7 @@ export default function Footer() {
   const commonT = useTranslations('common');
   const locale = useLocale();
 
-  const footerLinks = [
-    { name: commonT('privacyPolicy'), href: `/${locale}/privacy-policy` },
-    { name: commonT('termsOfService'), href: `/${locale}/terms` },
-    { name: commonT('cookiesSettings'), href: `/${locale}/cookies` },
-  ];
+
 
   return (
     <footer className='bg-white border-t border-gray-200'>
@@ -55,7 +51,7 @@ export default function Footer() {
 
           {/* Navigation Links */}
           <nav className='flex flex-col md:flex-row items-center gap-6 md:gap-10'>
-            {navbarLinks.map((link) => (
+            {navbarLinks.map(link => (
               <Link
                 key={link.id}
                 href={`/${locale}${link.href}`}
@@ -89,30 +85,15 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className='flex flex-col sm:flex-row flex-wrap items-center gap-4 justify-between text-center'>
           <p className='text-[#344054] text-sm'>
-            © {new Date().getFullYear()} {SITE_CONFIG.name}.{' '}
-            {commonT('allRightsReserved')}.
+            © {new Date().getFullYear()} {SITE_CONFIG.name}. {commonT('allRightsReserved')}.
           </p>
           <p className='text-[#344054] text-sm'>{t('description')}</p>
-
-          <div className='flex flex-wrap items-center gap-4 text-sm'>
-            {footerLinks.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className='text-[#344054] hover:text-[#3E1492] transition-colors duration-300'
-              >
-                {link.name}
-              </Link>
-            ))}
-          </div>
         </div>
 
         {/* Catalyst Credit */}
         <div className='mt-8 pt-6 border-t border-gray-100'>
           <div className='flex flex-col sm:flex-row items-center justify-center gap-2 text-center'>
-            <span className='text-[#344054] text-xs opacity-70'>
-              Designed & Developed by
-            </span>
+            <span className='text-[#344054] text-xs opacity-70'>Designed & Developed by</span>
             <Link
               href='https://www.catalyst.com.eg/'
               target='_blank'

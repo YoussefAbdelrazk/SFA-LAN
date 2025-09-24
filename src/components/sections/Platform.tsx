@@ -1,8 +1,8 @@
 'use client';
 
 import platform from '@/assets/images/platform.jpg';
-import { Button, FlexComponent } from '@/components/ui';
-import { CheckCircle2, ChevronRight } from 'lucide-react';
+import { FlexComponent } from '@/components/ui';
+import { CheckCircle2 } from 'lucide-react';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -46,10 +46,6 @@ export default function Platform() {
             icon={<CheckCircle2 className='w-6 h-6 text-[#3E1492]' />}
           />
         </div>
-        <Button variant='primary' size='lg' className='group mt-6'>
-          {t('getStartedNow')}
-          <ChevronRight className='w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1 cursor-pointer' />
-        </Button>
       </div>
     </section>
   );

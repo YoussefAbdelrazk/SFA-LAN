@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
+import { hasLocale, NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
 import { Geist, Geist_Mono, Roboto } from 'next/font/google';
 import { notFound } from 'next/navigation';
@@ -11,6 +11,7 @@ import LayoutLoader from '@/components/ui/LayoutLoader';
 import { Toaster } from '@/components/ui/sonner-toaster';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
+import { routing } from '@/i18n/routing';
 import '../globals.css';
 import Providers from './providers';
 
@@ -19,7 +20,6 @@ const geistSans = Geist({
   subsets: ['latin'],
   display: 'swap',
 });
-
 
 const geistMono = Geist_Mono({
   variable: '--font-geist-mono',
@@ -129,6 +129,9 @@ export const metadata: Metadata = {
     apple: '/favicon.svg',
   },
 };
+export function generateStaticParams() {
+  return routing.locales.map(locale => ({ locale }));
+}
 
 export default async function LocaleLayout({
   children,
@@ -138,10 +141,12 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>;
 }) {
   const { locale } = await params;
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
 
   // Validate that the incoming `locale` parameter is valid
-  const validLocales = ['en', 'ar', 'fr'];
-  if (!validLocales.includes(locale)) {
+  if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
 

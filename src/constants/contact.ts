@@ -3,6 +3,18 @@ export const CONTACT_CONFIG = {
   // WhatsApp Business number - Replace with your actual WhatsApp number
   whatsappNumber: '+1234567890', // Format: +[country code][phone number]
 
+  // Hotline configuration
+  hotline: {
+    // Default fallback number
+    defaultNumber: '+1234567890',
+    // Display name for hotline
+    displayName: {
+      ar: 'خط المساعدة',
+      en: 'Hotline',
+      fr: "Ligne d'assistance",
+    },
+  },
+
   // WhatsApp messages in different languages
   whatsappMessages: {
     ar: 'مرحباً! أريد معرفة المزيد عن خدمات اللياقة البدنية في منصة شريف فرنسا.',
@@ -38,29 +50,20 @@ export const getWhatsAppUrl = (locale: string, customMessage?: string) => {
   const number = CONTACT_CONFIG.whatsappNumber;
   const message =
     customMessage ||
-    CONTACT_CONFIG.whatsappMessages[
-      locale as keyof typeof CONTACT_CONFIG.whatsappMessages
-    ] ||
+    CONTACT_CONFIG.whatsappMessages[locale as keyof typeof CONTACT_CONFIG.whatsappMessages] ||
     CONTACT_CONFIG.whatsappMessages.en;
   const encodedMessage = encodeURIComponent(message);
   return `https://wa.me/${number}?text=${encodedMessage}`;
 };
 
-// Helper function to get contact info by locale
-export const getContactInfo = (locale: string) => {
-  return {
-    address:
-      CONTACT_CONFIG.contactInfo.address[
-        locale as keyof typeof CONTACT_CONFIG.contactInfo.address
-      ] || CONTACT_CONFIG.contactInfo.address.en,
-    phone:
-      CONTACT_CONFIG.contactInfo.phone[
-        locale as keyof typeof CONTACT_CONFIG.contactInfo.phone
-      ] || CONTACT_CONFIG.contactInfo.phone.en,
-    email: CONTACT_CONFIG.contactInfo.email,
-    hours:
-      CONTACT_CONFIG.businessHours[
-        locale as keyof typeof CONTACT_CONFIG.businessHours
-      ] || CONTACT_CONFIG.businessHours.en,
-  };
+// Helper function to get hotline number with fallback
+export const getHotlineNumber = (apiData?: { hotline?: string; phone?: string }): string => {
+  return apiData?.hotline || apiData?.phone || CONTACT_CONFIG.hotline.defaultNumber;
+};
+
+// Helper function to get hotline display name
+export const getHotlineDisplayName = (locale: string): string => {
+  return CONTACT_CONFIG.hotline.displayName[
+    locale as keyof typeof CONTACT_CONFIG.hotline.displayName
+  ] || CONTACT_CONFIG.hotline.displayName.en;
 };

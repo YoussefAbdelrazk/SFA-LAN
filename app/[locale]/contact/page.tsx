@@ -2,11 +2,14 @@ import contactImage from '@/assets/images/Contact2.png';
 import { ContactForm, ContactInfo } from '@/components/contact';
 import { Container, Section } from '@/components/layout';
 import Image from 'next/image';
+import { setRequestLocale } from 'next-intl/server';
 
 // You can add a contact image here if you have one
 // import contactImage from "@/assets/images/contact.jpg";
 
-export default function ContactPage() {
+export default async function ContactPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  setRequestLocale(locale);
   return (
     <div className='min-h-screen overflow-x-hidden my-20 text-[#344054] '>
       {/* Hero Section */}

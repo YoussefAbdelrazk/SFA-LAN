@@ -2,7 +2,6 @@
 
 import login from '@/assets/images/Login_Mockup.png';
 import Side_menu from '@/assets/images/Side_Menu_Mockup.png';
-import { Button } from '@/components/ui';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -40,20 +39,19 @@ export default function Hero() {
             </p>
 
             <div className='flex flex-col sm:flex-row gap-4 justify-center lg:justify-start'>
-              <Button
-                variant='primary'
-                size='lg'
-                className='bg-[#3E1492] hover:text-[#feda02] font-semibold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform  hover-lift'
+              <a
+                href='#btn-platform'
+                className='bg-[#3E1492] rounded-md text-white hover:text-[#feda02] font-semibold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform  hover-lift'
               >
                 {t('downloadApp')}
-              </Button>
-              <Button
-                variant='outline'
-                size='lg'
-                className='border-2    hover:text-[#3E1492] font-semibold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform  hover-lift'
+              </a>
+              <a
+                href='https://web.sherif-faranca.com'
+                target='_blank'
+                className='border-2 bg-white rounded-md    hover:text-[#3E1492] font-semibold px-8 py-4 text-lg shadow-xl hover:shadow-2xl transition-all duration-300 transform  hover-lift cursor-pointer'
               >
                 {t('useWebPlatform')}
-              </Button>
+              </a>
             </div>
           </div>
         </div>

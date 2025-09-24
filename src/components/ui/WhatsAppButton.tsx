@@ -1,6 +1,7 @@
 'use client';
 
-import { getWhatsAppUrl } from '@/constants/contact';
+import { getHotlineNumber } from '@/constants/contact';
+import { useContactData } from '@/hooks/useContactData';
 import { useLocale } from 'next-intl';
 
 interface WhatsAppButtonProps {
@@ -8,14 +9,15 @@ interface WhatsAppButtonProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-export default function WhatsAppButton({
-  className = '',
-  size = 'md',
-}: WhatsAppButtonProps) {
+export default function WhatsAppButton({ className = '', size = 'md' }: WhatsAppButtonProps) {
   const locale = useLocale();
+  const { data: contactData, isLoading } = useContactData(locale);
 
   const handleWhatsAppClick = () => {
-    const whatsappUrl = getWhatsAppUrl(locale);
+    const hotlineNumber = getHotlineNumber(contactData);
+    const message = `Hello! I would like to know more about the fitness services at Sherife Franca Platform.`;
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/${hotlineNumber}?text=${encodedMessage}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -24,6 +26,23 @@ export default function WhatsAppButton({
     md: 'w-16 h-16',
     lg: 'w-20 h-20',
   };
+
+  if (isLoading) {
+    return (
+      <div
+        className={`
+        fixed bottom-6 right-6 z-50
+        ${sizeClasses[size]}
+        bg-gray-400
+        text-white rounded-full shadow-lg
+        flex items-center justify-center
+        ${className}
+      `}
+      >
+        <div className='animate-spin rounded-full h-6 w-6 border-b-2 border-white'></div>
+      </div>
+    );
+  }
 
   return (
     <button
@@ -42,9 +61,7 @@ export default function WhatsAppButton({
       title='Chat with us on WhatsApp'
     >
       <svg
-        className={`${
-          size === 'sm' ? 'w-6 h-6' : size === 'md' ? 'w-8 h-8' : 'w-10 h-10'
-        }`}
+        className={`${size === 'sm' ? 'w-6 h-6' : size === 'md' ? 'w-8 h-8' : 'w-10 h-10'}`}
         fill='currentColor'
         viewBox='0 0 24 24'
       >

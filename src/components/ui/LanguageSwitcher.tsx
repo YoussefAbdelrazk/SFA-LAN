@@ -13,7 +13,7 @@ const languages = [
   { code: 'fr', name: 'Français', flag: '🇫🇷', nativeName: 'French' },
 ];
 
-export default function LanguageSwitcher() {
+export default function LanguageSwitcher({ mobileMenu }: { mobileMenu?: boolean }) {
   const locale = useLocale();
   const router = useRouter();
   const pathname = usePathname();
@@ -102,12 +102,13 @@ export default function LanguageSwitcher() {
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
           'flex items-center gap-3 px-4 py-2.5 rounded-xl transition-all duration-300',
-          'bg-gradient-to-r from-[#3E1492]/10 to-[#6B46C1]/10 backdrop-blur-md border border-[#3E1492]/20',
+          'bg-gradient-to-r text-white from-[#3E1492]/10 to-[#6B46C1]/10 backdrop-blur-md border border-[#3E1492]/20',
           'hover:from-[#3E1492]/20 hover:to-[#6B46C1]/20 hover:border-[#3E1492]/30 hover:scale-105',
           'text-[#3E1492] font-medium shadow-lg hover:shadow-xl',
           'focus:outline-none focus:ring-2 focus:ring-[#3E1492]/50 focus:ring-offset-2 focus:ring-offset-transparent',
           'group relative overflow-hidden',
           isChanging && 'opacity-70 cursor-not-allowed',
+          mobileMenu && 'bg-white text-[#3E1492]',
         )}
         disabled={isChanging}
         aria-label='Select language'

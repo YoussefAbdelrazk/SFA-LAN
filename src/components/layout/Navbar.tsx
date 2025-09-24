@@ -4,11 +4,10 @@ import logo from '@/assets/images/logo.png';
 import { Button } from '@/components/ui';
 import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 import { navbarLinks } from '@/data';
+import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 export default function Navbar() {
@@ -203,8 +202,8 @@ export default function Navbar() {
                 )}
                 style={{ transitionDelay: `${navbarLinks.length * 100}ms` }}
               >
-                <div className='flex justify-center'>
-                  <LanguageSwitcher />
+                <div className='flex justify-center w-full '>
+                  <LanguageSwitcher mobileMenu={menuOpen} />
                 </div>
               </div>
 
