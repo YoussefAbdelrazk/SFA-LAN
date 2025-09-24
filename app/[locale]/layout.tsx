@@ -7,7 +7,7 @@ import { notFound } from 'next/navigation';
 import { Footer, Navbar } from '@/components/layout';
 import PerformanceMonitor from '@/components/PerformanceMonitor';
 import StructuredData from '@/components/StructuredData';
-import LayoutLoader from '@/components/ui/LayoutLoader';
+// import LayoutLoader from '@/components/ui/LayoutLoader';
 import { Toaster } from '@/components/ui/sonner-toaster';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 
@@ -167,7 +167,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages} locale={locale}>
           <Providers>
             <PerformanceMonitor />
-            <LayoutLoader />
+            {/* <LayoutLoader /> */}
             <Navbar />
             <main className='flex flex-col items-center justify-center md:block overflow-x-hidden'>
               {children}
