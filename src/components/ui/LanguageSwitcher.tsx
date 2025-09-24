@@ -52,21 +52,21 @@ export default function LocaleSwitcher() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align='end'
-        className='w-52 bg-[#3E1492]/95 backdrop-blur-xl border border-white/20 shadow-2xl rounded-xl'
+        className='w-52 bg-[#3E1492]/60 backdrop-blur-xl border border-white/20 shadow-2xl rounded-xl'
         sideOffset={8}
       >
         {locales.map(loc => (
           <DropdownMenuItem
             key={loc.code}
             onClick={() => switchLocale(loc.code)}
-            className='flex items-center justify-between px-4 py-3 text-white hover:bg-[#F7F225] hover:text-black cursor-pointer transition-colors duration-200 rounded-lg mx-1'
+            className='flex items-center  hover:bg-[#3E1492] justify-between px-4 py-3 text-white  hover:text-black cursor-pointer transition-colors duration-200 rounded-lg mx-1'
             dir={loc.dir}
           >
-            <div className='flex items-center gap-3'>
+            <div className='flex items-center gap-3 '>
               <span className='text-lg'>{loc.flag}</span>
               <span className='font-medium'>{loc.name}</span>
             </div>
-            {locale === loc.code && <Check className='h-4 w-4 text-[#F7F225]' />}
+            {locale === loc.code && <Check className='h-4 w-4 text-white hover:text-[#3E1492]' />}
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>

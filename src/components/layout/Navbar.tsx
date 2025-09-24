@@ -1,7 +1,6 @@
 'use client';
 
 import logo from '@/assets/images/logo.png';
-import { Button } from '@/components/ui';
 import {
   default as LanguageSwitcher,
   default as LocaleSwitcher,
@@ -17,7 +16,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const t = useTranslations('navigation');
-  const commonT = useTranslations('common');
+  // const commonT = useTranslations('common');
   const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -83,7 +82,6 @@ export default function Navbar() {
                       <span className='absolute left-1/2 -translate-x-1/2 bottom-0 w-3/4 h-1 rounded-full   shadow-md animate-pulse'></span>
                     )}
                   </Link>
-
                 </li>
               );
             })}
@@ -92,13 +90,13 @@ export default function Navbar() {
           {/* Desktop CTA Button and Language Switcher */}
           <div className='hidden lg:flex items-center gap-6'>
             <LocaleSwitcher />
-            <Button
+            {/* <Button
               variant='primary'
               size='md'
               className='bg-gradient-to-r from-[#3E1492] to-[#6B46C1] hover:from-[#6B46C1] hover:to-[#3E1492] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'
             >
               {commonT('joinNow')}
-            </Button>
+            </Button> */}
           </div>
 
           {/* Creative Mobile Menu Button */}
@@ -198,7 +196,7 @@ export default function Navbar() {
               </div>
 
               {/* CTA Button */}
-              <div
+              {/* <div
                 className={cn(
                   'transform transition-all duration-700 ease-out mt-4 mobile-menu-item',
                   menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
@@ -215,7 +213,7 @@ export default function Navbar() {
                 >
                   🚀 {commonT('joinNow')}
                 </Button>
-              </div>
+              </div> */}
             </nav>
           </div>
         </div>

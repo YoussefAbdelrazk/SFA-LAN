@@ -1,8 +1,9 @@
 import contactImage from '@/assets/images/Contact2.png';
 import { ContactForm, ContactInfo } from '@/components/contact';
 import { Container, Section } from '@/components/layout';
-import Image from 'next/image';
+import { Animate, ImageReveal } from '@/lib/animations';
 import { setRequestLocale } from 'next-intl/server';
+import Image from 'next/image';
 
 // You can add a contact image here if you have one
 // import contactImage from "@/assets/images/contact.jpg";
@@ -22,15 +23,19 @@ export default async function ContactPage({ params }: { params: Promise<{ locale
             </div>
 
             {/* Contact Image/Illustration - Right Side */}
-            <div className='order-2 lg:order-2 '>
-              <Image
-                src={contactImage}
-                width={530}
-                height={734}
-                alt='Contact Us '
-                className='rounded-3xl shadow-2xl w-full h-[300px] sm:h-[400px] md:h-[500px] lg:w-[530px] lg:h-[734px] object-cover object-center  hover:shadow-3xl'
-              />
-            </div>
+            <Animate variant='fadeInRight' delay={0.1}>
+              <div className='order-2 lg:order-2 '>
+                <ImageReveal delay={0.1}>
+                  <Image
+                    src={contactImage}
+                    width={530}
+                    height={734}
+                    alt='Contact Us '
+                    className='rounded-3xl shadow-2xl w-full h-[300px] sm:h-[400px] md:h-[500px] lg:w-[530px] lg:h-[734px] object-cover object-center  hover:shadow-3xl'
+                  />
+                </ImageReveal>
+              </div>
+            </Animate>
           </div>
         </Container>
       </Section>
