@@ -3,6 +3,7 @@
 import { Button } from '@/components/ui';
 import { FormField, Input, Textarea } from '@/components/ui/form-field';
 import { useContactUs } from '@/hooks/useContactUs';
+import { Animate, TextReveal } from '@/lib/animations';
 import { cn } from '@/lib/utils';
 import { ContactFormData, createContactFormSchema } from '@/lib/validations/contact';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -104,111 +105,119 @@ export default function ContactForm({ className }: ContactFormProps) {
   };
 
   return (
-    <div className={cn('w-full max-w-md page-transition', className)}>
-      <div className='mb-8 section-fade-in'>
-        <h1 className='text-4xl md:text-5xl font-bold  mb-4 transition-all duration-500 hover:text-[#3E1492]'>
-          {t('title')}
-        </h1>
-        <p className='text-gray-600 text-lg transition-all duration-300 hover:text-gray-800'>
-          {t('subtitle')}
-        </p>
-      </div>
+    <div className={cn('w-full max-w-md', className)}>
+      <Animate variant='fadeInUp' delay={0.2}>
+        <div className='mb-8'>
+          <TextReveal delay={0.3}>
+            <h1 className='text-4xl md:text-5xl font-bold  mb-4 transition-all duration-500 hover:text-[#3E1492]'>
+              {t('title')}
+            </h1>
+          </TextReveal>
+          <Animate variant='fadeInUp' delay={0.4}>
+            <p className='text-gray-600 text-lg transition-all duration-300 hover:text-gray-800'>
+              {t('subtitle')}
+            </p>
+          </Animate>
+        </div>
+      </Animate>
 
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6 section-fade-in'>
-        {/* Name Field */}
-        <FormField label={commonT('fullName')} error={form.formState.errors.fullName?.message}>
-          <Input
-            {...form.register('fullName')}
-            type='text'
-            placeholder={t('form.fullNamePlaceholder')}
-            error={!!form.formState.errors.fullName}
-            isValid={isFieldValid('fullName')}
-            icon={
-              <div
-                className={cn(
-                  'flex items-center justify-center w-5 h-5',
-                  locale === 'ar' ? 'ml-2' : 'mr-1',
-                )}
-              >
-                <svg
-                  className='h-5 w-5 text-[#3E1492]'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
+      <Animate variant='fadeInUp' delay={0.5}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+          {/* Name Field */}
+          <FormField label={commonT('fullName')} error={form.formState.errors.fullName?.message}>
+            <Input
+              {...form.register('fullName')}
+              type='text'
+              placeholder={t('form.fullNamePlaceholder')}
+              error={!!form.formState.errors.fullName}
+              isValid={isFieldValid('fullName')}
+              icon={
+                <div
+                  className={cn(
+                    'flex items-center justify-center w-5 h-5',
+                    locale === 'ar' ? 'ml-2' : 'mr-1',
+                  )}
                 >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
-                  />
-                </svg>
-              </div>
-            }
-            className={locale === 'ar' ? 'text-left' : ''}
-            dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          />
-        </FormField>
+                  <svg
+                    className='h-5 w-5 text-[#3E1492]'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z'
+                    />
+                  </svg>
+                </div>
+              }
+              className={locale === 'ar' ? 'text-left' : ''}
+              dir={locale === 'ar' ? 'rtl' : 'ltr'}
+            />
+          </FormField>
 
-        {/* Email Field */}
-        <FormField label={commonT('email')} error={form.formState.errors.email?.message}>
-          <Input
-            {...form.register('email')}
-            type='email'
-            placeholder={t('form.emailPlaceholder')}
-            error={!!form.formState.errors.email}
-            isValid={isFieldValid('email')}
-            icon={
-              <div
-                className={cn(
-                  'flex items-center justify-center w-5 h-5',
-                  locale === 'ar' ? 'ml-1' : 'mr-1',
-                )}
-              >
-                <svg
-                  className='h-5 w-5 text-[#3E1492]'
-                  fill='none'
-                  stroke='currentColor'
-                  viewBox='0 0 24 24'
+          {/* Email Field */}
+          <FormField label={commonT('email')} error={form.formState.errors.email?.message}>
+            <Input
+              {...form.register('email')}
+              type='email'
+              placeholder={t('form.emailPlaceholder')}
+              error={!!form.formState.errors.email}
+              isValid={isFieldValid('email')}
+              icon={
+                <div
+                  className={cn(
+                    'flex items-center justify-center w-5 h-5',
+                    locale === 'ar' ? 'ml-1' : 'mr-1',
+                  )}
                 >
-                  <path
-                    strokeLinecap='round'
-                    strokeLinejoin='round'
-                    strokeWidth={2}
-                    d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
-                  />
-                </svg>
-              </div>
-            }
-            className={locale === 'ar' ? 'text-left' : ''}
-            dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          />
-        </FormField>
+                  <svg
+                    className='h-5 w-5 text-[#3E1492]'
+                    fill='none'
+                    stroke='currentColor'
+                    viewBox='0 0 24 24'
+                  >
+                    <path
+                      strokeLinecap='round'
+                      strokeLinejoin='round'
+                      strokeWidth={2}
+                      d='M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z'
+                    />
+                  </svg>
+                </div>
+              }
+              className={locale === 'ar' ? 'text-left' : ''}
+              dir={locale === 'ar' ? 'rtl' : 'ltr'}
+            />
+          </FormField>
 
-        {/* Message Field */}
-        <FormField label={commonT('message')} error={form.formState.errors.message?.message}>
-          <Textarea
-            {...form.register('message')}
-            placeholder={t('form.messagePlaceholder')}
-            rows={5}
-            error={!!form.formState.errors.message}
-            isValid={isFieldValid('message')}
-            className={locale === 'ar' ? 'text-left' : ''}
-            dir={locale === 'ar' ? 'rtl' : 'ltr'}
-          />
-        </FormField>
+          {/* Message Field */}
+          <FormField label={commonT('message')} error={form.formState.errors.message?.message}>
+            <Textarea
+              {...form.register('message')}
+              placeholder={t('form.messagePlaceholder')}
+              rows={5}
+              error={!!form.formState.errors.message}
+              isValid={isFieldValid('message')}
+              className={locale === 'ar' ? 'text-left' : ''}
+              dir={locale === 'ar' ? 'rtl' : 'ltr'}
+            />
+          </FormField>
 
-        {/* Submit Button */}
-        <Button
-          type='submit'
-          variant='primary'
-          size='lg'
-          className='w-full'
-          disabled={contactMutation.isPending}
-        >
-          {contactMutation.isPending ? commonT('submitting') : t('form.submitNow')}
-        </Button>
-      </form>
+          {/* Submit Button */}
+          <Button
+            type='submit'
+            variant='primary'
+            size='lg'
+            className='w-full'
+            disabled={contactMutation.isPending}
+          >
+            {contactMutation.isPending ? commonT('submitting') : t('form.submitNow')}
+          </Button>
+        </form>
+      </Animate>
     </div>
   );
 }

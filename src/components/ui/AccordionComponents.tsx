@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from '@/components/ui/accordion';
 import { useFAQ } from '@/hooks/useFAQ';
+import { StaggerContainer, StaggerItem } from '@/lib/animations';
 import { FAQApiResponse, FAQItem } from '@/types/faq';
 import { useLocale, useTranslations } from 'next-intl';
 
@@ -91,20 +92,23 @@ export function AccordionDemo() {
       className='w-full max-w-7xl mx-auto rounded-xl shadow-2xl p-6 backdrop-blur-md border'
       defaultValue='item-1'
     >
-      {displayItems.map((item: FAQItem) => (
-        <AccordionItem
-          key={item.id}
-          value={`item-${item.id}`}
-          className='mb-4 rounded-xl border transition-all duration-300 shadow-lg'
-        >
-          <AccordionTrigger className='flex w-full items-center justify-between px-6 py-4 text-lg font-bold bg-gradient-to-r transition-colors duration-300 bg-[#3E1492] text-white rounded-t-xl'>
-            {item.question}
-          </AccordionTrigger>
-          <AccordionContent className='px-6 py-4 bg-[#E2DCF0] text-[#344054] rounded-b-xl text-base font-medium backdrop-blur-sm'>
-            {item.answer}
-          </AccordionContent>
-        </AccordionItem>
-      ))}
+      <StaggerContainer delay={0.1}>
+        {displayItems.map((item: FAQItem) => (
+          <StaggerItem key={item.id}>
+            <AccordionItem
+              value={`item-${item.id}`}
+              className='mb-4 rounded-xl border transition-all duration-300 shadow-lg'
+            >
+              <AccordionTrigger className='flex w-full items-center justify-between px-6 py-4 text-lg font-bold bg-gradient-to-r transition-colors duration-300 bg-[#3E1492] text-white rounded-t-xl'>
+                {item.question}
+              </AccordionTrigger>
+              <AccordionContent className='px-6 py-4 bg-[#E2DCF0] text-[#344054] rounded-b-xl text-base font-medium backdrop-blur-sm'>
+                {item.answer}
+              </AccordionContent>
+            </AccordionItem>
+          </StaggerItem>
+        ))}
+      </StaggerContainer>
     </Accordion>
   );
 }

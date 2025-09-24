@@ -3,6 +3,7 @@
 import PrivacyImage from '@/assets/images//Placeholder Image.png';
 import { Container, Section } from '@/components/layout';
 import { usePrivacy } from '@/hooks/usePrivacy';
+import { Animate, ImageReveal, TextReveal } from '@/lib/animations';
 import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 
@@ -45,9 +46,11 @@ export default function PrivacyContent() {
         {/* Content */}
         <Container className='relative z-20 text-center text-white'>
           <div className='max-w-5xl mx-auto'>
-            <h1 className='text-4xl md:text-7xl font-bold mb-6'>
-              {privacyData?.data?.title || t('title')}
-            </h1>
+            <TextReveal delay={0.2}>
+              <h1 className='text-4xl md:text-7xl font-bold mb-6'>
+                {privacyData?.data?.title || t('title')}
+              </h1>
+            </TextReveal>
           </div>
         </Container>
       </section>
@@ -56,34 +59,40 @@ export default function PrivacyContent() {
       <Section className='bg-white text-[#344054]'>
         <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center'>
           {/* Text Content */}
-          <div className='space-y-6'>
-            <h2 className='text-4xl font-bold  mb-6'>
-              {privacyData?.data?.section1 || t('preferences.title')}
-            </h2>
-            <p className='text-lg  leading-relaxed'>
-              {privacyData?.data?.content1 || t('preferences.content')}
-            </p>
-            <h2 className='text-4xl font-bold  mb-6'>
-              {privacyData?.data?.section2 || t('information.title')}
-            </h2>
-            <p className='text-lg  leading-relaxed'>
-              {privacyData?.data?.content2 || t('information.content')}
-            </p>
-          </div>
+          <Animate variant='fadeInLeft' delay={0.2}>
+            <div className='space-y-6'>
+              <h2 className='text-4xl font-bold  mb-6'>
+                {privacyData?.data?.section1 || t('preferences.title')}
+              </h2>
+              <p className='text-lg  leading-relaxed'>
+                {privacyData?.data?.content1 || t('preferences.content')}
+              </p>
+              <h2 className='text-4xl font-bold  mb-6'>
+                {privacyData?.data?.section2 || t('information.title')}
+              </h2>
+              <p className='text-lg  leading-relaxed'>
+                {privacyData?.data?.content2 || t('information.content')}
+              </p>
+            </div>
+          </Animate>
 
           {/* Image */}
-          <div className='relative py-4'>
-            <div className='relative rounded-2xl overflow-hidden shadow-2xl '>
-              <Image
-                src={privacyData?.data?.imageUrl || PrivacyImage}
-                alt={privacyData?.data?.title || 'Privacy Policy'}
-                width={530}
-                height={540}
-                className='object-cover object-center w-full'
-                sizes='(max-width: 530px) 100vw, 50vw'
-              />
+          <Animate variant='fadeInRight' delay={0.4}>
+            <div className='relative py-4'>
+              <ImageReveal delay={0.6}>
+                <div className='relative rounded-2xl overflow-hidden shadow-2xl '>
+                  <Image
+                    src={privacyData?.data?.imageUrl || PrivacyImage}
+                    alt={privacyData?.data?.title || 'Privacy Policy'}
+                    width={530}
+                    height={540}
+                    className='object-cover object-center w-full'
+                    sizes='(max-width: 530px) 100vw, 50vw'
+                  />
+                </div>
+              </ImageReveal>
             </div>
-          </div>
+          </Animate>
         </div>
       </Section>
     </div>

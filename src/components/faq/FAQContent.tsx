@@ -2,6 +2,7 @@
 
 import { Container } from '@/components/layout';
 import { AccordionDemo } from '@/components/ui/AccordionComponents';
+import { Animate, TextReveal } from '@/lib/animations';
 import { useTranslations } from 'next-intl';
 
 export default function FAQContent() {
@@ -16,14 +17,18 @@ export default function FAQContent() {
         {/* Content */}
         <Container className='relative z-20 text-center text-white'>
           <div className='max-w-5xl mx-auto'>
-            <h1 className='text-4xl md:text-7xl font-bold mb-6'>{t('title')}</h1>
+            <TextReveal delay={0.2}>
+              <h1 className='text-4xl md:text-7xl font-bold mb-6'>{t('title')}</h1>
+            </TextReveal>
           </div>
         </Container>
       </section>
 
-      <section className='my-20'>
-        <AccordionDemo />
-      </section>
+      <Animate variant='fadeInUp' delay={0.4}>
+        <section className='my-20'>
+          <AccordionDemo />
+        </section>
+      </Animate>
     </div>
   );
 }
