@@ -11,6 +11,7 @@ import {
 } from '@/components/ui/shadcn-card';
 import { useMonthlySubscriptions, useYearlySubscriptions } from '@/hooks/useSubscriptions';
 import { cn } from '@/lib/utils';
+import { handleGetStartedClick } from '@/lib/utils/device-detection';
 import { useLocale, useTranslations } from 'next-intl';
 import { useState } from 'react';
 
@@ -244,6 +245,7 @@ export default function SubscriptionPlans({ className }: SubscriptionPlansProps)
                       'w-full font-semibold transition-all duration-300',
                       isPopular && 'bg-white text-[#3E1492] hover:bg-gray-50',
                     )}
+                    onClick={handleGetStartedClick}
                   >
                     {commonT('getStarted')}
                   </Button>
@@ -251,18 +253,6 @@ export default function SubscriptionPlans({ className }: SubscriptionPlansProps)
               </Card>
             );
           })}
-        </div>
-      )}
-
-      {/* Pagination Info */}
-      {!isLoading && !error && currentData?.data?.pagination && (
-        <div className='mt-8 text-center'>
-          <p className='text-gray-600 text-sm'>
-            Showing {currentData.data.pagination.pageNumber} of{' '}
-            {currentData.data.pagination.totalPages} pages
-            <span className='mx-2'>•</span>
-            {currentData.data.pagination.totalCount} total plans available
-          </p>
         </div>
       )}
     </div>

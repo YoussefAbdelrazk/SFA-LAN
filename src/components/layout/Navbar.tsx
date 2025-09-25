@@ -1,6 +1,7 @@
 'use client';
 
 import logo from '@/assets/images/logo.png';
+import { Button } from '@/components/ui/Button';
 import {
   default as LanguageSwitcher,
   default as LocaleSwitcher,
@@ -8,6 +9,7 @@ import {
 import { navbarLinks } from '@/data';
 import { Link, usePathname } from '@/i18n/navigation';
 import { cn } from '@/lib/utils';
+import { handleGetStartedClick } from '@/lib/utils/device-detection';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
@@ -16,7 +18,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const t = useTranslations('navigation');
-  // const commonT = useTranslations('common');
+  const commonT = useTranslations('common');
   const pathname = usePathname();
 
   const toggleMenu = () => setMenuOpen(!menuOpen);
@@ -90,13 +92,14 @@ export default function Navbar() {
           {/* Desktop CTA Button and Language Switcher */}
           <div className='hidden lg:flex items-center gap-6'>
             <LocaleSwitcher />
-            {/* <Button
+            <Button
               variant='primary'
               size='md'
               className='bg-gradient-to-r from-[#3E1492] to-[#6B46C1] hover:from-[#6B46C1] hover:to-[#3E1492] shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105'
+              onClick={handleGetStartedClick}
             >
               {commonT('joinNow')}
-            </Button> */}
+            </Button>
           </div>
 
           {/* Creative Mobile Menu Button */}
@@ -196,7 +199,7 @@ export default function Navbar() {
               </div>
 
               {/* CTA Button */}
-              {/* <div
+              <div
                 className={cn(
                   'transform transition-all duration-700 ease-out mt-4 mobile-menu-item',
                   menuOpen ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0',
@@ -209,11 +212,14 @@ export default function Navbar() {
                   variant='primary'
                   size='md'
                   className='bg-white text-[#3E1492] hover:bg-yellow-300 hover:text-[#1a1442] transition-all duration-300 px-6 py-2 text-base font-bold shadow-2xl'
-                  onClick={() => setMenuOpen(false)}
+                  onClick={() => {
+                    setMenuOpen(false);
+                    handleGetStartedClick();
+                  }}
                 >
                   🚀 {commonT('joinNow')}
                 </Button>
-              </div> */}
+              </div>
             </nav>
           </div>
         </div>
