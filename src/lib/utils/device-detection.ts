@@ -8,6 +8,18 @@ export const isMobileDevice = (): boolean => {
   return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 };
 
+export const isIOSDevice = (): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+};
+
+export const isAndroidDevice = (): boolean => {
+  if (typeof window === 'undefined') return false;
+
+  return /Android/i.test(navigator.userAgent);
+};
+
 export const getPlatformLinks = () => {
   const isMobile = isMobileDevice();
 
@@ -25,9 +37,17 @@ export const handleGetStartedClick = () => {
   const { web, mobile, isMobile } = getPlatformLinks();
 
   if (isMobile) {
-    // For mobile devices, we'll show both options or redirect to a mobile landing page
-    // For now, let's redirect to Android by default, but you can modify this logic
-    window.open(mobile.android, '_blank');
+    // Detect specific mobile platform
+    if (isIOSDevice()) {
+      // iOS devices (iPhone, iPad, iPod)
+      window.open(mobile.ios, '_blank');
+    } else if (isAndroidDevice()) {
+      // Android devices
+      window.open(mobile.android, '_blank');
+    } else {
+      // Other mobile devices - default to Android
+      window.open(mobile.android, '_blank');
+    }
   } else {
     // For web/desktop devices
     window.open(web, '_blank');
